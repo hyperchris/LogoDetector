@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/Chris/Dev/NSL/HoG/tmp/code/detect.cpp" "/Users/Chris/Dev/NSL/HoG/tmp/code/CMakeFiles/detect.dir/detect.cpp.o"
+  "/Users/Chris/Dev/NSL/HoG/LogoDetector/code/detect.cpp" "/Users/Chris/Dev/NSL/HoG/LogoDetector/code/CMakeFiles/detect.dir/detect.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "Clang")
 

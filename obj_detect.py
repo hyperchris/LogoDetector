@@ -20,8 +20,9 @@ import time, os, copy, sys, random,threading
 RESULT_HEADER = "RESULT: "
 ERROR_MSG = "ERROR"
 
-def get_result(image_path):
-	cmd = './code/detect 0.90 ' + image_path
+def get_result(image_path, logo_name):
+	print 'logo: ' + logo_name
+	cmd = './code/detect 0.90 ' + image_path + ' descriptors/' + logo_name + '.dat'
 	ret_val = os.popen(cmd).read().split('\n') # system call
 	
 	found = False
@@ -62,9 +63,9 @@ def dir_walk(rootDir, indent, show_img):
 	print 'ANSWER: Right:' + `right_ans` + ' Wrong:' + `wrong_ans`
 
 if __name__ == '__main__':
-	get_result('test/1.jpg')
-	get_result('test/2.jpg')
-	get_result('test/3.jpg')
+	get_result('test/1.jpg', 'subway')
+	get_result('test/2.jpg', 'subway')
+	get_result('test/3.jpg', 'subway')
 	# should go through all imgs here...
 	'''
 	if len(sys.argv) != 3:

@@ -14,7 +14,7 @@
 #include <cctype>
 #include <vector>
 
-// Input: $./detect [threshold] [img_path]
+// Input: $./detect [threshold] [img_path] [dscriptor_path]
 // Output: 
 //          * RESULT: empty
 //          * RESULT: [left_pos]/[right_pos]/[img_cols]/[thres]
@@ -40,13 +40,13 @@ using namespace std;
 using namespace cv;
 
 // Set the file to write the resulting detecting descriptor vector to
-static string descriptorVectorFile = "code/genfiles/descriptorvector.dat";
+static string descriptorVectorFile = "descriptors/subway.dat";
 
 static const Size trainingPadding = Size(0, 0);
 static const Size winStride = Size(8, 8);
 
 static void readDescriptorFromFile(vector<float>& descriptorVector, string fileName) {
-    printf("Reading descriptor vector from file '%s'\n", fileName.c_str());
+    // printf("Reading descriptor vector from file '%s'\n", fileName.c_str());
     ifstream ifs(fileName);
     string str;
     int count = 0;
@@ -119,6 +119,10 @@ int main(int argc, char** argv) {
          args[i] = argv[i];
      }
 
+    double threshold = stod(args[1]);
+    string img_path = args[2];
+    descriptorVectorFile = args[3];
+
     HOGDescriptor hog; // Use standard parameters here
     hog.winSize = Size(WSIZE_WIDTH, WSIZE_HEIGHT); // Default training images size as used in paper
     hog.cellSize = Size(CSIZE_WIDTH, CSIZE_HEIGHT); // cell size 
@@ -127,11 +131,6 @@ int main(int argc, char** argv) {
     vector<float> descriptorVector;
     readDescriptorFromFile(descriptorVector, descriptorVectorFile);
     hog.setSVMDetector(descriptorVector);
-
-    double threshold = stod(args[1]);
-    string img_path = args[2];
-
-    cout << "INPUT: thres: " << threshold << " img_path: " << img_path << endl;
 
     detectImages(hog, threshold, img_path); // thres, img_dir, img_num
 
