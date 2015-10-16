@@ -1,0 +1,1 @@
+/Users/Chris/Dev/NSL/HoG/tmp/code/CMakeFiles/detect.dir
