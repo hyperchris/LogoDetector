@@ -1,1 +1,0 @@
-/Users/Chris/Dev/NSL/HoG/LogoDetector/code/CMakeFiles/detect.dir

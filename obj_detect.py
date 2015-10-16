@@ -8,7 +8,7 @@
  
  Usage: 	Put this python file in the same path with the "code" folder. 
  			Then import the python file and call "get_result" function: 
- 				func_result = get_result(image_path)
+ 				func_result = get_result(image_path, show_img)
 
  What's the return value format: 	
 //          * RESULT: empty
@@ -17,12 +17,15 @@
 
 import time, os, copy, sys, random,threading
 
+OS = 'OSX' # change this to 'Linux' if you're running the code on Linux
+THRESHOLD = 0.9 # threshold for detection
+
 RESULT_HEADER = "RESULT: "
 ERROR_MSG = "ERROR"
 
-def get_result(image_path, logo_name):
+def get_result(image_path, logo_name, show_img):
 	print 'logo: ' + logo_name
-	cmd = './code/detect 0.90 ' + image_path + ' descriptors/' + logo_name + '.dat'
+	cmd = './code/' + OS + '/detect ' + `THRESHOLD` + ' ' + image_path + ' descriptors/' + logo_name + '.dat ' + `show_img`
 	ret_val = os.popen(cmd).read().split('\n') # system call
 	
 	found = False
@@ -63,9 +66,9 @@ def dir_walk(rootDir, indent, show_img):
 	print 'ANSWER: Right:' + `right_ans` + ' Wrong:' + `wrong_ans`
 
 if __name__ == '__main__':
-	get_result('test/1.jpg', 'subway')
-	get_result('test/2.jpg', 'subway')
-	get_result('test/3.jpg', 'subway')
+	get_result('test/1.jpg', 'subway', 1)
+	get_result('test/2.jpg', 'subway', 1)
+	get_result('test/3.jpg', 'subway', 1)
 	# should go through all imgs here...
 	'''
 	if len(sys.argv) != 3:
