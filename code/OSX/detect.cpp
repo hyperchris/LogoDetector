@@ -5,6 +5,7 @@
 #include <iostream>
 #include <iterator>
 #include <string.h>
+#include <string>
 #include <stdlib.h>
 #include <fstream>
 #include <stdexcept>
@@ -12,29 +13,31 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/ml/ml.hpp>
 #include <cctype>
-#include <vector>
+#include <vector> 
+#include <cctype>
 
 // Input: $./detect [threshold] [img_path] [dscriptor_path] [show_img]
 // Output: 
 //          * RESULT: empty
 //          * RESULT: [left_pos]/[right_pos]/[img_cols]/[thres]
 
-#define WSIZE_WIDTH 160 // window size
-#define WSIZE_HEIGHT 56
+#define WSIZE_WIDTH 120 // window size
+#define WSIZE_HEIGHT 36
 
-#define BSIZE_WIDTH 16 // 
-#define BSIZE_HEIGHT 16
+#define BSIZE_WIDTH 12 // 
+#define BSIZE_HEIGHT 12
 
-#define BSTRIDE_WIDTH 8
-#define BSTRIDE_HEIGHT 8
+#define BSTRIDE_WIDTH 6
+#define BSTRIDE_HEIGHT 6
 
-#define CSIZE_WIDTH 8
-#define CSIZE_HEIGHT 8
+#define CSIZE_WIDTH 6
+#define CSIZE_HEIGHT 6
 
 #define MARGIN 0
 
 #define RESULT_HEADER "RESULT: "
 #define SPLITTER "/"
+#define RES_DIR "res/"
 
 using namespace std;
 using namespace cv;
@@ -45,14 +48,34 @@ static string descriptorVectorFile = "descriptors/subway.dat";
 static const Size trainingPadding = Size(0, 0);
 static const Size winStride = Size(8, 8);
 
-static void readDescriptorFromFile(vector<float>& descriptorVector, string fileName) {
-    // printf("Reading descriptor vector from file '%s'\n", fileName.c_str());
-    ifstream ifs(fileName);
+string getFileName(string fname) {
+    int startPos = fname.find_last_of("/");
+    return fname.substr(startPos + 1, fname.length());
+}
+
+cv::Rect getCroppingRec (Mat& img, int x, int y, int width, int height) {
+    int x_res = (x - MARGIN < 0) ? 0: (x - MARGIN); // 
+    int y_res = (y - MARGIN < 0) ? 0: (y - MARGIN); // 
+    int width_res = (x + width + MARGIN > img.cols) ? (img.cols - x_res - 1) : (x + width + MARGIN - x_res - 1);    // 
+    int height_res = (y + height + MARGIN > img.rows) ? (img.rows - y_res - 1) : (y + height + MARGIN - y_res - 1); // 
+    return Rect(x_res, y_res, width_res, height_res);
+}
+
+static void storeResult(const vector<Rect>& found, Mat& imageData, string res_name) {
+    if (found.size() < 1)
+        return;
+    vector<Rect>::const_iterator r = found.begin();
+    Rect temp_croppingRec = getCroppingRec(imageData, (int)r->x, (int)r->y, (int)r->width, (int)r->height); // Setup a rectangle (x, y, width, height)
+    Mat res = imageData(temp_croppingRec);  // get the cropped image
+    imwrite(RES_DIR + res_name, res);
+}
+
+static void readDescriptorFromFile(vector<float>& descriptorVector, const string fileName) {
+    ifstream ifs(fileName.c_str());
     string str;
     int count = 0;
     while (ifs >> str) {
         descriptorVector.push_back(atof(str.c_str()));
-        // cout << descriptorVector[descriptorVector.size() - 1] << " ";
         count++;
     }
     cout << endl;
@@ -79,14 +102,6 @@ static void showDetections(const vector<Rect>& found, Mat& imageData) {
     waitKey(0);
 }
 
-Rect getCroppingRec (Mat& img, int x, int y, int width, int height) {
-    int x_res = (x - MARGIN < 0) ? 0: (x - MARGIN); // 
-    int y_res = (y - MARGIN < 0) ? 0: (y - MARGIN); // 
-    int width_res = (x + width + MARGIN > img.cols) ? (img.cols - x_res - 1) : (x + width + MARGIN - x_res - 1);    // 
-    int height_res = (y + height + MARGIN > img.rows) ? (img.rows - y_res - 1) : (y + height + MARGIN - y_res - 1); // 
-    return Rect(x_res, y_res, width_res, height_res);
-}
-
 static void detectImages(const HOGDescriptor& hog, const double threshold, string img_path, int show_img) {
     printf("detecting... %s\n", img_path.c_str());
     Mat imageData = imread(img_path, 1);
@@ -102,11 +117,13 @@ static void detectImages(const HOGDescriptor& hog, const double threshold, strin
     }
     if (found.size() != 1)
         cout << RESULT_HEADER << " empty" << endl;
-    else
+    else {
         cout << RESULT_HEADER << (found[0].x)
             << SPLITTER << (found[0].x + found[0].width - 1)
             << SPLITTER << imageData.cols 
             << SPLITTER << hitThreshold << endl; 
+        storeResult(found, imageData, getFileName(img_path));
+    }
     if (show_img)
         showDetections(found, imageData); // display the res image
 }
@@ -117,10 +134,10 @@ int main(int argc, char** argv) {
          args[i] = argv[i];
      }
 
-    double threshold = stod(args[1]);
+    double threshold = stod(args[1].c_str());
     string img_path = args[2];
     descriptorVectorFile = args[3];
-    int show_img = stoi(args[4]);
+    int show_img = stoi(args[4].c_str());
 
     HOGDescriptor hog; // Use standard parameters here
     hog.winSize = Size(WSIZE_WIDTH, WSIZE_HEIGHT); // Default training images size as used in paper

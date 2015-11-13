@@ -1,1 +1,1 @@
-/Users/Chris/Dev/NSL/HoG/LogoDetector/code/OSX/CMakeFiles/detect.dir
+/home/chris/Dev/NSL/HoG/LogoDetector/code/OSX/CMakeFiles/detect.dir

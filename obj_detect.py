@@ -13,12 +13,14 @@
  What's the return value format: 	
 //          * RESULT: empty
 //          * RESULT: [left_pos]/[right_pos]/[img_cols]/[thres]
+
+if you want to detect all imgs in a dir, use: $python obj_detect.py img_dir/
 '''
 
 import time, os, copy, sys, random,threading
-
+ 
 OS = 'OSX' # change this to 'Linux' if you're running the code on Linux
-THRESHOLD = 0.9 # threshold for detection
+THRESHOLD = 1.0 # threshold for detection
 
 RESULT_HEADER = "RESULT: "
 ERROR_MSG = "ERROR"
@@ -41,7 +43,7 @@ def get_result(image_path, logo_name, show_img):
 		return ERROR_MSG
 
 # Set the directory you want to start from
-def dir_walk(rootDir, indent, show_img):
+def dir_walk(rootDir, indent):
 	logo_name = rootDir.split('/')[-2]
 	out_file = open(logo_name + '_res.txt','w')
 	right_ans = 0
@@ -51,31 +53,18 @@ def dir_walk(rootDir, indent, show_img):
 		for fname in fileList: # file 
 			print indent + '\t'+ fname
 			if '.jpg' in fname or '.png' in fname or '.JPG' in fname or '.PNG' in fname:
-				detect_res = get_result(logo_name, rootDir + fname, show_img)
-				if int(detect_res.split('/')[-1].split('\n')[0]) >= 20: # only show the image above the conf threshold
-					user_input = raw_input('Is the result correct? [y/n]: ')
-					if user_input == 'y':
-						out_file.write('1\t')
-						right_ans += 1
-					else:
-						out_file.write('0\t')
-						wrong_ans += 1
-					out_file.write(fname + '\t' + detect_res + '\n')
-
+				detect_res = get_result(rootDir + fname, logo_name, 0)
 	out_file.close()
 	print 'ANSWER: Right:' + `right_ans` + ' Wrong:' + `wrong_ans`
 
 if __name__ == '__main__':
-	get_result('test/1.jpg', 'subway', 1)
-	get_result('test/2.jpg', 'subway', 1)
-	get_result('test/3.jpg', 'subway', 1)
 	# should go through all imgs here...
-	'''
-	if len(sys.argv) != 3:
+	
+	if len(sys.argv) != 2:
 		sys.exit('ERROR: wrong argc!')
 	if not os.path.exists(sys.argv[1]):
 		sys.exit('ERROR: ' + sys.argv[1] + ' was not found!')
 
-	dir_walk(sys.argv[1], '', sys.argv[2]) # walk through 
-	'''
+	dir_walk(sys.argv[1], '') # walk through 
+	
 	print "done"
