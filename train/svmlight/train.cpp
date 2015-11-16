@@ -215,7 +215,7 @@ static void detectImages(const HOGDescriptor& hog, const double hitThreshold, st
 int main(int argc, char** argv) {
     if (argc != 13) {
         cout << "ERROR: argc wrong: ./train [pos_path] [neg_path] [res_path] " << 
-        "[w_wid] [w_hei] [bsize_wid] [bsize_hei] [bstride_wid] [bstride_hei] [c_wid] [c_hei] [no_training]" << endl;
+        "[w_wid] [w_hei] [bsize_wid] [bsize_hei] [bstride_wid] [bstride_hei] [c_wid] [c_hei] [need_training]" << endl;
         return -1;
     }
 
@@ -233,7 +233,7 @@ int main(int argc, char** argv) {
     CSIZE_WIDTH = atoi(argv[10]);
     CSIZE_HEIGHT = atoi(argv[11]);
 
-    int no_training = atoi(argv[12]);
+    int need_training = atoi(argv[12]);
 
     HOGDescriptor hog; // Use standard parameters here
     hog.winSize = Size(WSIZE_WIDTH, WSIZE_HEIGHT); // Default training images size as used in paper
@@ -303,7 +303,7 @@ int main(int argc, char** argv) {
         return EXIT_FAILURE;
     }
     
-    if (no_training) {
+    if (!need_training) {
         cout << "No training. Features generated." << endl;
         return EXIT_SUCCESS;
     }

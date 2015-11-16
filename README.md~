@@ -4,7 +4,7 @@ use the detector to find the  in an image
 #Update
 - Available [logo_name]: 'subway'
 - Tricks: 
-1. The upper 15% and lower 1/3 will be ignored in both neg image selection and testing process
+1. The upper 1/5 and lower 1/3 will be ignored in both neg image selection and testing process
 2. The contrast of training and testing images is increased to 1.3x (to be done)
 3. 
 

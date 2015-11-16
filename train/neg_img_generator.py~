@@ -24,7 +24,7 @@ def trim_img(img_path, width_in, height_in, piece, dstDir):
     else:
         xsize, ysize_origin = f.size
         ysize = int(ysize_origin * (1.0 - UPPER - LOWER))
-    	# print `xsize` + ' ' + `ysize_origin` + ' ' + `ysize` + ' ' + `int(ysize_origin * UPPER)`
+    	print `xsize` + ' ' + `ysize_origin` + ' ' + `ysize` + ' ' + `int(ysize_origin * UPPER)`
         for i in range(piece): # for each piece...
             width = width_in + randint(0, WIDTH_MAX - width_in) # generate a random larger scale between origin window and max size
             height = height_in * width / width_in
