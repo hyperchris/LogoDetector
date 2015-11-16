@@ -15,9 +15,8 @@ HOW TO USE:
 - NOTE: To change the c and positive_weight in training process, modify 'svmlight/svmlight.h'
 - NOTE: if no_training = 1, then only feature file will be generated. No training process.
 
-- Input: $ ./train [posSamplesDir] [negSamplesDir] [featuresFile] 
-[WSIZE_WIDTH] [WSIZE_HEIGHT] [BSIZE_WIDTH] [BSIZE_HEIGHT] 
-[BSTRIDE_WIDTH] [BSTRIDE_HEIGHT] [CSIZE_WIDTH] [CSIZE_HEIGHT] [no_training]
+- Modify the size parameters in run.sh, then:
+- Input: $ ./run.sh [posSamplesDir] [negSamplesDir] [featuresFile] [no_training]
 
 ------------------ libsvm ------------------
 You need to use libSVM code to train and cross-validate
