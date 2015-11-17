@@ -47,44 +47,44 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/chris/Lab/LogoDetector/detect
+CMAKE_SOURCE_DIR = /home/chris/Lab/LogoDetector/train/tools/increase_contrast
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/chris/Lab/LogoDetector/detect
+CMAKE_BINARY_DIR = /home/chris/Lab/LogoDetector/train/tools/increase_contrast
 
 #=============================================================================
-# Target rules for target CMakeFiles/detect.dir
+# Target rules for target CMakeFiles/contrast.dir
 
 # All Build rule for target.
-CMakeFiles/detect.dir/all:
-	$(MAKE) -f CMakeFiles/detect.dir/build.make CMakeFiles/detect.dir/depend
-	$(MAKE) -f CMakeFiles/detect.dir/build.make CMakeFiles/detect.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/chris/Lab/LogoDetector/detect/CMakeFiles  1
-	@echo "Built target detect"
-.PHONY : CMakeFiles/detect.dir/all
+CMakeFiles/contrast.dir/all:
+	$(MAKE) -f CMakeFiles/contrast.dir/build.make CMakeFiles/contrast.dir/depend
+	$(MAKE) -f CMakeFiles/contrast.dir/build.make CMakeFiles/contrast.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/chris/Lab/LogoDetector/train/tools/increase_contrast/CMakeFiles  1
+	@echo "Built target contrast"
+.PHONY : CMakeFiles/contrast.dir/all
 
 # Include target in all.
-all: CMakeFiles/detect.dir/all
+all: CMakeFiles/contrast.dir/all
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/detect.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chris/Lab/LogoDetector/detect/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/detect.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chris/Lab/LogoDetector/detect/CMakeFiles 0
-.PHONY : CMakeFiles/detect.dir/rule
+CMakeFiles/contrast.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chris/Lab/LogoDetector/train/tools/increase_contrast/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/contrast.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chris/Lab/LogoDetector/train/tools/increase_contrast/CMakeFiles 0
+.PHONY : CMakeFiles/contrast.dir/rule
 
 # Convenience name for target.
-detect: CMakeFiles/detect.dir/rule
-.PHONY : detect
+contrast: CMakeFiles/contrast.dir/rule
+.PHONY : contrast
 
 # clean rule for target.
-CMakeFiles/detect.dir/clean:
-	$(MAKE) -f CMakeFiles/detect.dir/build.make CMakeFiles/detect.dir/clean
-.PHONY : CMakeFiles/detect.dir/clean
+CMakeFiles/contrast.dir/clean:
+	$(MAKE) -f CMakeFiles/contrast.dir/build.make CMakeFiles/contrast.dir/clean
+.PHONY : CMakeFiles/contrast.dir/clean
 
 # clean rule for target.
-clean: CMakeFiles/detect.dir/clean
+clean: CMakeFiles/contrast.dir/clean
 .PHONY : clean
 
 #=============================================================================

@@ -22,6 +22,9 @@ using namespace cv;
 #define SVMLIGHT 1
 #define LIBSVM 2
 
+#define ALPHA 1.3 // factor that the contrast is magnified
+#define BETA 0 // factor that the brightness is increased
+
 //#define TRAINHOG_USEDSVM SVMLIGHT
 #define TRAINHOG_USEDSVM SVMLIGHT
 
@@ -132,6 +135,16 @@ static void calculateFeaturesFromInput(const string& imageFilename, vector<float
         printf("Error: HOG image '%s' is empty, features calculation skipped!\n", imageFilename.c_str());
         return;
     }
+    /*
+    // increase contrast --- problem here!
+    for(int y = 0; y < imageData.rows; y++) { 
+        for( int x = 0; x < imageData.cols; x++ ) { 
+            for( int c = 0; c < 1; c++ ) {
+                imageData.at<Vec3b>(y,x)[c] = saturate_cast<uchar>(ALPHA * (imageData.at<Vec3b>(y,x)[c]) + BETA);
+             }
+        }
+    }
+    */
     // Check for mismatching dimensions
     if (imageData.cols != hog.winSize.width || imageData.rows != hog.winSize.height) {
         featureVector.clear();

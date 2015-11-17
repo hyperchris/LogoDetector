@@ -5,8 +5,8 @@ use the detector to find the  in an image
 - Available [logo_name]: 'subway'
 - Tricks: 
 1. The upper 15% and lower 1/3 will be ignored in both neg image selection and testing process
-2. The contrast of training and testing images is increased to 1.3x (to be done)
-3. 
+2. The contrast of training and testing images is increased to 1.3x 
+3. (Problem w/ training process.)
 
 ##How to use
 
@@ -21,3 +21,4 @@ use the detector to find the  in an image
 ### For multiple images
 - Use: $ python obj_detect.py [input_dir_path] [logo_name] [threshold] ([res_dir_path='res/'])
 - All the result images will be stored in [res_dir_path], default value is 'res/'
+- Recommended threshold between 0.95 and 1.05

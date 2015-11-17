@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/chris/Dev/NSL/HoG/LogoDetector/code/Linux
+CMAKE_SOURCE_DIR = /home/chris/Lab/LogoDetector/detect
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/chris/Dev/NSL/HoG/LogoDetector/code/Linux
+CMAKE_BINARY_DIR = /home/chris/Lab/LogoDetector/detect
 
 # Include any dependencies generated for this target.
 include CMakeFiles/detect.dir/depend.make
@@ -51,17 +51,17 @@ include CMakeFiles/detect.dir/flags.make
 
 CMakeFiles/detect.dir/detect.cpp.o: CMakeFiles/detect.dir/flags.make
 CMakeFiles/detect.dir/detect.cpp.o: detect.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/chris/Dev/NSL/HoG/LogoDetector/code/Linux/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/chris/Lab/LogoDetector/detect/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/detect.dir/detect.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/detect.dir/detect.cpp.o -c /home/chris/Dev/NSL/HoG/LogoDetector/code/Linux/detect.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/detect.dir/detect.cpp.o -c /home/chris/Lab/LogoDetector/detect/detect.cpp
 
 CMakeFiles/detect.dir/detect.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/detect.dir/detect.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/chris/Dev/NSL/HoG/LogoDetector/code/Linux/detect.cpp > CMakeFiles/detect.dir/detect.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/chris/Lab/LogoDetector/detect/detect.cpp > CMakeFiles/detect.dir/detect.cpp.i
 
 CMakeFiles/detect.dir/detect.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/detect.dir/detect.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/chris/Dev/NSL/HoG/LogoDetector/code/Linux/detect.cpp -o CMakeFiles/detect.dir/detect.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/chris/Lab/LogoDetector/detect/detect.cpp -o CMakeFiles/detect.dir/detect.cpp.s
 
 CMakeFiles/detect.dir/detect.cpp.o.requires:
 .PHONY : CMakeFiles/detect.dir/detect.cpp.o.requires
@@ -81,39 +81,45 @@ detect_EXTERNAL_OBJECTS =
 
 detect: CMakeFiles/detect.dir/detect.cpp.o
 detect: CMakeFiles/detect.dir/build.make
-detect: /usr/local/lib/libopencv_videostab.so.2.4.9
-detect: /usr/local/lib/libopencv_video.so.2.4.9
+detect: /usr/local/lib/libopencv_videostab.so.2.4.10
+detect: /usr/local/lib/libopencv_video.so.2.4.10
 detect: /usr/local/lib/libopencv_ts.a
-detect: /usr/local/lib/libopencv_superres.so.2.4.9
-detect: /usr/local/lib/libopencv_stitching.so.2.4.9
-detect: /usr/local/lib/libopencv_photo.so.2.4.9
-detect: /usr/local/lib/libopencv_ocl.so.2.4.9
-detect: /usr/local/lib/libopencv_objdetect.so.2.4.9
-detect: /usr/local/lib/libopencv_nonfree.so.2.4.9
-detect: /usr/local/lib/libopencv_ml.so.2.4.9
-detect: /usr/local/lib/libopencv_legacy.so.2.4.9
-detect: /usr/local/lib/libopencv_imgproc.so.2.4.9
-detect: /usr/local/lib/libopencv_highgui.so.2.4.9
-detect: /usr/local/lib/libopencv_gpu.so.2.4.9
-detect: /usr/local/lib/libopencv_flann.so.2.4.9
-detect: /usr/local/lib/libopencv_features2d.so.2.4.9
-detect: /usr/local/lib/libopencv_core.so.2.4.9
-detect: /usr/local/lib/libopencv_contrib.so.2.4.9
-detect: /usr/local/lib/libopencv_calib3d.so.2.4.9
-detect: /usr/local/lib/libopencv_nonfree.so.2.4.9
-detect: /usr/local/lib/libopencv_ocl.so.2.4.9
-detect: /usr/local/lib/libopencv_gpu.so.2.4.9
-detect: /usr/local/lib/libopencv_photo.so.2.4.9
-detect: /usr/local/lib/libopencv_objdetect.so.2.4.9
-detect: /usr/local/lib/libopencv_legacy.so.2.4.9
-detect: /usr/local/lib/libopencv_video.so.2.4.9
-detect: /usr/local/lib/libopencv_ml.so.2.4.9
-detect: /usr/local/lib/libopencv_calib3d.so.2.4.9
-detect: /usr/local/lib/libopencv_features2d.so.2.4.9
-detect: /usr/local/lib/libopencv_highgui.so.2.4.9
-detect: /usr/local/lib/libopencv_imgproc.so.2.4.9
-detect: /usr/local/lib/libopencv_flann.so.2.4.9
-detect: /usr/local/lib/libopencv_core.so.2.4.9
+detect: /usr/local/lib/libopencv_superres.so.2.4.10
+detect: /usr/local/lib/libopencv_stitching.so.2.4.10
+detect: /usr/local/lib/libopencv_photo.so.2.4.10
+detect: /usr/local/lib/libopencv_ocl.so.2.4.10
+detect: /usr/local/lib/libopencv_objdetect.so.2.4.10
+detect: /usr/local/lib/libopencv_nonfree.so.2.4.10
+detect: /usr/local/lib/libopencv_ml.so.2.4.10
+detect: /usr/local/lib/libopencv_legacy.so.2.4.10
+detect: /usr/local/lib/libopencv_imgproc.so.2.4.10
+detect: /usr/local/lib/libopencv_highgui.so.2.4.10
+detect: /usr/local/lib/libopencv_gpu.so.2.4.10
+detect: /usr/local/lib/libopencv_flann.so.2.4.10
+detect: /usr/local/lib/libopencv_features2d.so.2.4.10
+detect: /usr/local/lib/libopencv_core.so.2.4.10
+detect: /usr/local/lib/libopencv_contrib.so.2.4.10
+detect: /usr/local/lib/libopencv_calib3d.so.2.4.10
+detect: /usr/lib/x86_64-linux-gnu/libGLU.so
+detect: /usr/lib/x86_64-linux-gnu/libGL.so
+detect: /usr/lib/x86_64-linux-gnu/libSM.so
+detect: /usr/lib/x86_64-linux-gnu/libICE.so
+detect: /usr/lib/x86_64-linux-gnu/libX11.so
+detect: /usr/lib/x86_64-linux-gnu/libXext.so
+detect: /usr/local/lib/libopencv_nonfree.so.2.4.10
+detect: /usr/local/lib/libopencv_ocl.so.2.4.10
+detect: /usr/local/lib/libopencv_gpu.so.2.4.10
+detect: /usr/local/lib/libopencv_photo.so.2.4.10
+detect: /usr/local/lib/libopencv_objdetect.so.2.4.10
+detect: /usr/local/lib/libopencv_legacy.so.2.4.10
+detect: /usr/local/lib/libopencv_video.so.2.4.10
+detect: /usr/local/lib/libopencv_ml.so.2.4.10
+detect: /usr/local/lib/libopencv_calib3d.so.2.4.10
+detect: /usr/local/lib/libopencv_features2d.so.2.4.10
+detect: /usr/local/lib/libopencv_highgui.so.2.4.10
+detect: /usr/local/lib/libopencv_imgproc.so.2.4.10
+detect: /usr/local/lib/libopencv_flann.so.2.4.10
+detect: /usr/local/lib/libopencv_core.so.2.4.10
 detect: CMakeFiles/detect.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable detect"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/detect.dir/link.txt --verbose=$(VERBOSE)
@@ -130,6 +136,6 @@ CMakeFiles/detect.dir/clean:
 .PHONY : CMakeFiles/detect.dir/clean
 
 CMakeFiles/detect.dir/depend:
-	cd /home/chris/Dev/NSL/HoG/LogoDetector/code/Linux && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/chris/Dev/NSL/HoG/LogoDetector/code/Linux /home/chris/Dev/NSL/HoG/LogoDetector/code/Linux /home/chris/Dev/NSL/HoG/LogoDetector/code/Linux /home/chris/Dev/NSL/HoG/LogoDetector/code/Linux /home/chris/Dev/NSL/HoG/LogoDetector/code/Linux/CMakeFiles/detect.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/chris/Lab/LogoDetector/detect && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/chris/Lab/LogoDetector/detect /home/chris/Lab/LogoDetector/detect /home/chris/Lab/LogoDetector/detect /home/chris/Lab/LogoDetector/detect /home/chris/Lab/LogoDetector/detect/CMakeFiles/detect.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/detect.dir/depend
 

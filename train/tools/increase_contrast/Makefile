@@ -39,10 +39,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/chris/Lab/LogoDetector/detect
+CMAKE_SOURCE_DIR = /home/chris/Lab/LogoDetector/train/tools/increase_contrast
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/chris/Lab/LogoDetector/detect
+CMAKE_BINARY_DIR = /home/chris/Lab/LogoDetector/train/tools/increase_contrast
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -69,9 +69,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chris/Lab/LogoDetector/detect/CMakeFiles /home/chris/Lab/LogoDetector/detect/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chris/Lab/LogoDetector/train/tools/increase_contrast/CMakeFiles /home/chris/Lab/LogoDetector/train/tools/increase_contrast/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chris/Lab/LogoDetector/detect/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chris/Lab/LogoDetector/train/tools/increase_contrast/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -99,41 +99,41 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named detect
+# Target rules for targets named contrast
 
 # Build rule for target.
-detect: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 detect
-.PHONY : detect
+contrast: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 contrast
+.PHONY : contrast
 
 # fast build rule for target.
-detect/fast:
-	$(MAKE) -f CMakeFiles/detect.dir/build.make CMakeFiles/detect.dir/build
-.PHONY : detect/fast
+contrast/fast:
+	$(MAKE) -f CMakeFiles/contrast.dir/build.make CMakeFiles/contrast.dir/build
+.PHONY : contrast/fast
 
-detect.o: detect.cpp.o
-.PHONY : detect.o
+contrast.o: contrast.cpp.o
+.PHONY : contrast.o
 
 # target to build an object file
-detect.cpp.o:
-	$(MAKE) -f CMakeFiles/detect.dir/build.make CMakeFiles/detect.dir/detect.cpp.o
-.PHONY : detect.cpp.o
+contrast.cpp.o:
+	$(MAKE) -f CMakeFiles/contrast.dir/build.make CMakeFiles/contrast.dir/contrast.cpp.o
+.PHONY : contrast.cpp.o
 
-detect.i: detect.cpp.i
-.PHONY : detect.i
+contrast.i: contrast.cpp.i
+.PHONY : contrast.i
 
 # target to preprocess a source file
-detect.cpp.i:
-	$(MAKE) -f CMakeFiles/detect.dir/build.make CMakeFiles/detect.dir/detect.cpp.i
-.PHONY : detect.cpp.i
+contrast.cpp.i:
+	$(MAKE) -f CMakeFiles/contrast.dir/build.make CMakeFiles/contrast.dir/contrast.cpp.i
+.PHONY : contrast.cpp.i
 
-detect.s: detect.cpp.s
-.PHONY : detect.s
+contrast.s: contrast.cpp.s
+.PHONY : contrast.s
 
 # target to generate assembly for a file
-detect.cpp.s:
-	$(MAKE) -f CMakeFiles/detect.dir/build.make CMakeFiles/detect.dir/detect.cpp.s
-.PHONY : detect.cpp.s
+contrast.cpp.s:
+	$(MAKE) -f CMakeFiles/contrast.dir/build.make CMakeFiles/contrast.dir/contrast.cpp.s
+.PHONY : contrast.cpp.s
 
 # Help Target
 help:
@@ -141,12 +141,12 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... detect"
+	@echo "... contrast"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... detect.o"
-	@echo "... detect.i"
-	@echo "... detect.s"
+	@echo "... contrast.o"
+	@echo "... contrast.i"
+	@echo "... contrast.s"
 .PHONY : help
 
 

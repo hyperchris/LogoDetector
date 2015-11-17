@@ -14,7 +14,7 @@
 #include <vector>
 
 #define POS_WEIGHT 7.0 // over weight ratio: must be a float
-#define C_VAL 0.125 
+#define C_VAL 0.03125 
 
 // svmlight related
 // namespace required for avoiding collisions of declarations (e.g. LINEAR being declared in flann, svmlight and libsvm)

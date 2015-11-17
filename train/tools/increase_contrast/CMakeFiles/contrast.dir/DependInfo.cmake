@@ -4,7 +4,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/home/chris/Lab/LogoDetector/detect/detect.cpp" "/home/chris/Lab/LogoDetector/detect/CMakeFiles/detect.dir/detect.cpp.o"
+  "/home/chris/Lab/LogoDetector/train/tools/increase_contrast/contrast.cpp" "/home/chris/Lab/LogoDetector/train/tools/increase_contrast/CMakeFiles/contrast.dir/contrast.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 

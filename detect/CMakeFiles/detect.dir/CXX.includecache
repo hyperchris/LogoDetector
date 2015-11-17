@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/chris/Dev/NSL/HoG/LogoDetector/code/Linux/detect.cpp
+/home/chris/Lab/LogoDetector/detect/detect.cpp
 stdio.h
 -
 stdlib.h
@@ -38,8 +38,6 @@ opencv2/ml/ml.hpp
 cctype
 -
 vector
--
-cctype
 -
 
 /usr/local/include/opencv2/highgui/highgui.hpp

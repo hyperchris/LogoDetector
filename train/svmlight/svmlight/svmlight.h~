@@ -13,7 +13,7 @@
 #include <stdio.h>
 #include <vector>
 
-#define POS_WEIGHT 20.0 // over weight ratio: must be a float
+#define POS_WEIGHT 7.0 // over weight ratio: must be a float
 #define C_VAL 0.125 
 
 // svmlight related
