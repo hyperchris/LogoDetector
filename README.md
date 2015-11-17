@@ -19,6 +19,6 @@ use the detector to find the  in an image
 - store_img = 1 will store the result in res_dir_path. If you want to make the code run faster, set it to 0
 
 ### For multiple images
-- Use: $ python obj_detect.py [input_dir_path] [logo_name] [threshold] ([res_dir_path='res/'])
+- Use: $ python obj_detect.py [input_dir_path] [logo_name] [threshold] [res_dir_path='res/']
 - All the result images will be stored in [res_dir_path], default value is 'res/'
 - Recommended threshold between 0.95 and 1.05
