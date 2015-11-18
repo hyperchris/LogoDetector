@@ -155,8 +155,8 @@ static void calculateFeaturesFromInput(const string& imageFilename, vector<float
     vector<Point> locations;
     Mat image;
     cvtColor(imageData_enhanced, image, CV_BGR2GRAY);
-    imshow("good", image);
-    waitKey(0);
+    // imshow("good", image);
+    // waitKey(0);
     hog.compute(image, featureVector, winStride, trainingPadding, locations);
     imageData.release(); // Release the image again after features are extracted
 }
