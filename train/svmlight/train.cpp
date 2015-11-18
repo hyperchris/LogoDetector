@@ -129,22 +129,23 @@ static void getFilesInDirectory(const string& dirName, vector<string>& fileNames
 }
 
 static void calculateFeaturesFromInput(const string& imageFilename, vector<float>& featureVector, HOGDescriptor& hog) {
-    Mat imageData = imread(imageFilename, 0);
+    Mat imageData = imread(imageFilename, 1);
     if (imageData.empty()) {
         featureVector.clear();
         printf("Error: HOG image '%s' is empty, features calculation skipped!\n", imageFilename.c_str());
         return;
     }
-    /*
-    // increase contrast --- problem here!
+    
+    // increase contrast
+    Mat imageData_enhanced = imageData;
     for(int y = 0; y < imageData.rows; y++) { 
         for( int x = 0; x < imageData.cols; x++ ) { 
-            for( int c = 0; c < 1; c++ ) {
-                imageData.at<Vec3b>(y,x)[c] = saturate_cast<uchar>(ALPHA * (imageData.at<Vec3b>(y,x)[c]) + BETA);
+            for( int c = 0; c < 3; c++ ) {
+                imageData_enhanced.at<Vec3b>(y,x)[c] = saturate_cast<uchar>(ALPHA * (imageData.at<Vec3b>(y,x)[c]) + BETA);
              }
         }
     }
-    */
+
     // Check for mismatching dimensions
     if (imageData.cols != hog.winSize.width || imageData.rows != hog.winSize.height) {
         featureVector.clear();
@@ -152,7 +153,11 @@ static void calculateFeaturesFromInput(const string& imageFilename, vector<float
         return;
     }
     vector<Point> locations;
-    hog.compute(imageData, featureVector, winStride, trainingPadding, locations);
+    Mat image;
+    cvtColor(imageData_enhanced, image, CV_BGR2GRAY);
+    imshow("good", image);
+    waitKey(0);
+    hog.compute(image, featureVector, winStride, trainingPadding, locations);
     imageData.release(); // Release the image again after features are extracted
 }
 
