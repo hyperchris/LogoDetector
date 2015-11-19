@@ -1,12 +1,3 @@
-/** 
- * @file:   svmlight.h
- * @author: Jan Hendriks (dahoc3150 [at] gmail.com)
- * @date:   Created on 11. Mai 2011
- * @brief:  Wrapper interface for SVMlight, 
- * @see http://www.cs.cornell.edu/people/tj/svm_light/ for SVMlight details and terms of use
- * 
- */
-
 #ifndef SVMLIGHT_H
 #define	SVMLIGHT_H
 
@@ -14,7 +5,7 @@
 #include <vector>
 
 #define POS_WEIGHT 7.0 // over weight ratio: must be a float
-#define C_VAL 0.03125 
+#define C_VAL 0.03125  // 0.125 is not good w/ contrasted images
 
 // svmlight related
 // namespace required for avoiding collisions of declarations (e.g. LINEAR being declared in flann, svmlight and libsvm)

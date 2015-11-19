@@ -18,7 +18,7 @@
 
 import time, os, copy, sys, random,threading
  
-THRESHOLD = 1.0 # threshold for detection
+THRESHOLD = 1.15 # threshold for detection
 
 RESULT_HEADER = "RESULT: "
 ERROR_MSG = "ERROR"
