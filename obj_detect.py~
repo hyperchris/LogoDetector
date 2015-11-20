@@ -38,7 +38,7 @@ CSIZE_WIDTH = 6
 CSIZE_HEIGHT = 6
 
 def get_result(image_path, logo_name, store_img=1, res_dir_path=RES_DIR):
-	cmd = './code/detect/detect ' + `THRESHOLD` + ' ' + image_path + ' code/descriptors/' + logo_name + '.dat ' + `store_img` + ' ' + res_dir_path + \
+	cmd = './detect/detect ' + `THRESHOLD` + ' ' + image_path + ' descriptors/' + logo_name + '.dat ' + `store_img` + ' ' + res_dir_path + \
 	' ' + `WSIZE_WIDTH` + ' ' + `WSIZE_HEIGHT` + ' ' + `BSIZE_WIDTH` + ' ' + `BSIZE_HEIGHT` + \
 	' ' + `BSTRIDE_WIDTH` + ' ' + `BSTRIDE_WIDTH` + ' ' + `CSIZE_WIDTH` + ' ' + `CSIZE_HEIGHT`
 
