@@ -23,6 +23,8 @@
 // UPDATE: ignore the up 15% and lower 1/3 of the input image
 #define MARGIN 0
 
+#define THRESHOLD 1.1
+
 #define RESULT_HEADER "RESULT: "
 #define SPLITTER "/"
 
@@ -147,7 +149,7 @@ int main(int argc, char** argv) {
         args[i] = argv[i];
     }
 
-    double threshold = 1.15; // atof(args[1].c_str());
+    double threshold = THRESHOLD; // atof(args[1].c_str());
     string img_path = args[2];
     string descriptorVectorFile = args[3];
     int store_img = stoi(args[4].c_str());
