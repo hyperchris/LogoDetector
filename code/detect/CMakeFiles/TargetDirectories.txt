@@ -1,1 +1,1 @@
-/home/chris/Lab/LogoDetector/code/detect/CMakeFiles/detect.dir
+/home/chris/Dev/NSL/LogoDetector/code/detect/CMakeFiles/detect.dir

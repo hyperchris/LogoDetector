@@ -9,6 +9,7 @@ use the detector to find the  in an image
 3. (Problem w/ training process.)
 
 ##How to use
+**Modify 'code/config.txt' to set the detection threshold and window**
 
 ### For single image
 - Include 'obj_detect.py', use the 'get_result' function inside.

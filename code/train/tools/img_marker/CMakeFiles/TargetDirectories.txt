@@ -1,0 +1,1 @@
+/home/chris/Dev/NSL/LogoDetector/code/train/tools/img_marker/CMakeFiles/marker.dir

@@ -6,7 +6,6 @@
 #include <iterator>
 // #include <string.h>
 #include <string>
-#include <stdlib.h>
 #include <fstream>
 #include <stdexcept>
 #include <opencv2/opencv.hpp>
@@ -22,8 +21,6 @@
 
 // UPDATE: ignore the up 15% and lower 1/3 of the input image
 #define MARGIN 0
-
-#define THRESHOLD 1.1
 
 #define RESULT_HEADER "RESULT: "
 #define SPLITTER "/"
@@ -113,15 +110,6 @@ static void detectImages(const HOGDescriptor& hog, const double threshold, strin
     Rect temp_croppingRec = getCroppingRec(imageData, 0, (int)((float)imageData.rows * UPPER), 
                             imageData.cols, (int)((float)imageData.rows * (1.0 - UPPER - LOWER))); // Setup a rectangle (x, y, width, height)
     Mat imageData_cropped = imageData(temp_croppingRec);  // get the cropped image
-    // debug ---------------------
-    /*
-    cout << (int)((float)imageData.rows * UPPER) << " " << (int)((float)imageData.rows * (1.0 - UPPER - LOWER)) << endl;
-    imshow(img_path, imageData);
-    waitKey(0);
-    imshow(img_path, imageData_cropped);
-    waitKey(0);
-    */
-    // --------------
     hog.detectMultiScale(imageData_cropped, found, hitThreshold, winStride, padding);
     while (found.size() > 1) { // increase the thres until only one obj left
         hitThreshold += 0.1;
@@ -149,7 +137,8 @@ int main(int argc, char** argv) {
         args[i] = argv[i];
     }
 
-    double threshold = THRESHOLD; // atof(args[1].c_str());
+    double threshold = atof(args[1].c_str());
+    cout << args[1] << " threshold: " << threshold << endl;
     string img_path = args[2];
     string descriptorVectorFile = args[3];
     int store_img = stoi(args[4].c_str());
