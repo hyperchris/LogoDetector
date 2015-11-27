@@ -1,10 +1,10 @@
 # LogoDetector
-use the detector to find the  in an image
+use the detector to find the in an image
 
 #Update
-- Available [logo_name]: 'subway'
-- Tricks: 
-1. The upper 15% and lower 1/3 will be ignored in both neg image selection and testing process
+**Available [logo_name]: 'subway', 'chase', 'mobil'**
+Tricks: 
+1. The lower 1/3 will be ignored in both neg image selection and testing process
 2. The contrast of training and testing images is increased to 1.3x 
 3. (Problem w/ training process.)
 
