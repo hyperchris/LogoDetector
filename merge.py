@@ -24,11 +24,12 @@ RES_WID = 1920
 RES_HEI = 960
 
 # Call this function in your program
-def merge_image():
+def merge_image(src_dir, dst_dir):
+	RES_DIR = dst_dir
 	if not os.path.exists(RES_DIR):
 		os.makedirs(RES_DIR)
 		
-	dir_walk(input_dir, '') # walk through 
+	dir_walk(src_dir, '') # walk through 
 
 
 def get_name(impath, name_type): # ge the name or pos from image path

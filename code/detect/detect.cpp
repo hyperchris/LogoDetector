@@ -12,7 +12,7 @@
 #include <cctype>
 #include <vector>
 
-// Input: $./detect [threshold] [img_path] [dscriptor_path] [store_img] [res_dir]
+// Input: $./detect [threshold] [img_path] [dscriptor_path] [store_img] [res_dir] [win_parameters]
 // Output: 
 //          * RESULT: empty
 //          * RESULT: [left_pos]/[right_pos]/[img_cols]/[thres]
@@ -44,15 +44,6 @@ Rect getCroppingRec(Mat& img, int x, int y, int width, int height) {
     int width_res = (x + width + MARGIN > img.cols) ? (img.cols - x_res - 1) : (x + width + MARGIN - x_res - 1);    // 
     int height_res = (y + height + MARGIN > img.rows) ? (img.rows - y_res - 1) : (y + height + MARGIN - y_res - 1); // 
     return Rect(x_res, y_res, width_res, height_res);
-}
-
-static void storeResult(const vector<Rect>& found, Mat& imageData, string res_name) {
-    if (found.size() < 1)
-        return;
-    vector<Rect>::const_iterator r = found.begin();
-    Rect temp_croppingRec = getCroppingRec(imageData, (int)r->x, (int)r->y, (int)r->width, (int)r->height); // Setup a rectangle (x, y, width, height)
-    Mat res = imageData(temp_croppingRec);  // get the cropped image
-    imwrite(res_dir + res_name, res);
 }
 
 static void readDescriptorFromFile(vector<float>& descriptorVector, const string fileName) {
@@ -122,10 +113,8 @@ static void detectImages(const HOGDescriptor& hog, const double threshold, strin
             << SPLITTER << hitThreshold << endl; 
         if (store_img) {
             storeDetections(found, imageData, getFileName(img_path)); // display the res image
-            // storeResult(found, imageData, getFileName(img_path));
         }
     }
-    // storeDetections(found, imageData); // display the res image
 }
 
 int main(int argc, char** argv) {

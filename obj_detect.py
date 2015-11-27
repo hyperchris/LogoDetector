@@ -65,7 +65,7 @@ def dir_walk(rootDir, indent, logo_name):
 		for fname in fileList: # file 
 			print indent + '\t'+ fname
 			if '.jpg' in fname or '.png' in fname or '.JPG' in fname or '.PNG' in fname:
-				detect_res = get_result(rootDir + fname, logo_name)
+				detect_res = get_result(rootDir + fname, logo_name, 1, RES_DIR)
 
 if __name__ == '__main__':
 	if len(sys.argv) != 4:
@@ -76,6 +76,7 @@ if __name__ == '__main__':
 	input_dir_path = sys.argv[1] 
 	logo_name = sys.argv[2]
 	RES_DIR = sys.argv[3]
+	print RES_DIR
 
 	if not os.path.exists(RES_DIR):
 		os.makedirs(RES_DIR)
