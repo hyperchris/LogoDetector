@@ -15,9 +15,9 @@
 import time, os, copy, sys, random, threading
  
 RES_DIR = 'res/'
-SPLITTER = '_fov20_' # used for splitting image name into image_info and pos_info
+SPLITTER = '_h' # used for splitting image name into image_info and pos_info
 
-pos_list = ['h20_p5', 'h0_p5', 'h-20_p5', 'h20_p-5', 'h0_p-5', 'h-20_p-5']
+pos_list = ['20_p5', '0_p5', '-20_p5', '20_p-5', '0_p-5', '-20_p-5']
 offset_list = [(1280,0), (640,0), (0,0), (1280,320), (640,320), (0,320)]
 
 RES_WID = 1920

@@ -1,16 +1,16 @@
 # LogoDetector
 use the detector to find the in an image
 
-#Update
+##Update
 **Available [logo_name]: 'subway', 'chase', 'mobil'**
-- Add merge
+- Add merge function
 
 ##Merge data
 - Include 'merge' in your python code.
 - Use **merge_image(src_dir, res_dir)** to do processing. 
 - Result will be stored in [res_dir]
 
-## Do detection
+##Do detection
 **Modify 'code/config.txt' to set the detection threshold and window**
 
 ### For single image
@@ -24,4 +24,4 @@ use the detector to find the in an image
 ### For multiple images
 - Use: $ python obj_detect.py [input_dir_path] [logo_name] [threshold] [res_dir_path='res/']
 - All the result images will be stored in [res_dir_path], default value is 'res/'
-- Recommended threshold between 0.95 and 1.05
+- Recommended threshold between 1.1 and 1.3 (for subway logo)
