@@ -3,12 +3,14 @@ use the detector to find the in an image
 
 #Update
 **Available [logo_name]: 'subway', 'chase', 'mobil'**
-Tricks: 
-1. The lower 1/3 will be ignored in both neg image selection and testing process
-2. The contrast of training and testing images is increased to 1.3x 
-3. (Problem w/ training process.)
+- Add merge
 
-##How to use
+##Merge data
+- Include 'merge' in your python code.
+- Use **merge_image(src_dir, res_dir)** to do processing. 
+- Result will be stored in [res_dir]
+
+## Do detection
 **Modify 'code/config.txt' to set the detection threshold and window**
 
 ### For single image

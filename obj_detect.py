@@ -18,7 +18,7 @@
 	- All the result images will be stored in [res_dir_path]
 '''
 
-import time, os, copy, sys, random,threading
+import time, os, copy, sys, random, threading
  
 RESULT_HEADER = "RESULT: "
 ERROR_MSG = "ERROR"
