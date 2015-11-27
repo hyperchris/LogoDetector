@@ -1,10 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <dirent.h>
-#include <ios>
 #include <iostream>
 #include <iterator>
-// #include <string.h>
 #include <string>
 #include <fstream>
 #include <stdexcept>
@@ -19,16 +17,15 @@
 //          * RESULT: empty
 //          * RESULT: [left_pos]/[right_pos]/[img_cols]/[thres]
 
-// UPDATE: ignore the up 15% and lower 1/3 of the input image
 #define MARGIN 0
 
 #define RESULT_HEADER "RESULT: "
 #define SPLITTER "/"
 
-#define UPPER 0.15 // upper 15% will be ignored
+#define UPPER 0.0 // upper 15% will be ignored // modified for large images
 #define LOWER 0.33 // lower 1/3 will be ignored
 
-#define ALPHA 1.3 // factor that the contrast is magnified
+#define ALPHA 1.2 // factor that the contrast is magnified
 #define BETA 0 // factor that the brightness is increased
 
 using namespace std;

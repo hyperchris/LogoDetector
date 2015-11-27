@@ -13,8 +13,6 @@ stdlib.h
 -
 dirent.h
 -
-ios
--
 iostream
 -
 iterator
