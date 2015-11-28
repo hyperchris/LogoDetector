@@ -3,8 +3,7 @@ use the detector to find the in an image
 
 ##Update
 **Available [logo_name]: 'subway', 'chase', 'mobil'**
-- **Important: All input dir path must end with '/'!**
-- Add merge function
+- Check if the dir path ends with '/'
 
 ##Merge data
 - Include 'merge' in your python code.

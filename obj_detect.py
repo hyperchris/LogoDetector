@@ -76,7 +76,12 @@ if __name__ == '__main__':
 	input_dir_path = sys.argv[1] 
 	logo_name = sys.argv[2]
 	RES_DIR = sys.argv[3]
-	print RES_DIR
+
+	# check if the dir path is end with '/'
+	if input_dir_path[-1] != '/':
+		input_dir_path += '/'
+	if RES_DIR[-1] != '/':
+		RES_DIR += '/'
 
 	if not os.path.exists(RES_DIR):
 		os.makedirs(RES_DIR)
