@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/chris/Dev/NSL/LogoDetector/code/tools/merge_support/merge_support.cpp
+/home/chris/Dev/NSL/LogoDetector/code/merge/merge_support.cpp
 sys/stat.h
 -
 unistd.h

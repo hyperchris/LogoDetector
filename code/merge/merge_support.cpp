@@ -36,7 +36,7 @@ int main(int argc, char** argv) {
 	if (exists_test(args[4])) // if dst alread there
 		dst = imread(args[4], 1);
 	else // else create an empty one
-		dst = Mat(DST_HEI, DST_WID, CV_8UC3, Scalar(0));
+		dst = Mat(DST_HEI, DST_WID, CV_8UC3, Scalar(0,0,0));
 
 	// paste src to dst and save
 	src.copyTo(dst(Rect(src_pos_x, src_pos_y, src.cols, src.rows)));

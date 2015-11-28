@@ -4,7 +4,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/home/chris/Dev/NSL/LogoDetector/code/tools/merge_support/merge_support.cpp" "/home/chris/Dev/NSL/LogoDetector/code/tools/merge_support/CMakeFiles/merge_support.dir/merge_support.cpp.o"
+  "/home/chris/Dev/NSL/LogoDetector/code/merge/merge_support.cpp" "/home/chris/Dev/NSL/LogoDetector/code/merge/CMakeFiles/merge_support.dir/merge_support.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 

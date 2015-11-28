@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/chris/Dev/NSL/LogoDetector/code/tools/merge_support
+CMAKE_SOURCE_DIR = /home/chris/Dev/NSL/LogoDetector/code/merge
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/chris/Dev/NSL/LogoDetector/code/tools/merge_support
+CMAKE_BINARY_DIR = /home/chris/Dev/NSL/LogoDetector/code/merge
 
 # Include any dependencies generated for this target.
 include CMakeFiles/merge_support.dir/depend.make
@@ -51,17 +51,17 @@ include CMakeFiles/merge_support.dir/flags.make
 
 CMakeFiles/merge_support.dir/merge_support.cpp.o: CMakeFiles/merge_support.dir/flags.make
 CMakeFiles/merge_support.dir/merge_support.cpp.o: merge_support.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/chris/Dev/NSL/LogoDetector/code/tools/merge_support/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/chris/Dev/NSL/LogoDetector/code/merge/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/merge_support.dir/merge_support.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/merge_support.dir/merge_support.cpp.o -c /home/chris/Dev/NSL/LogoDetector/code/tools/merge_support/merge_support.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/merge_support.dir/merge_support.cpp.o -c /home/chris/Dev/NSL/LogoDetector/code/merge/merge_support.cpp
 
 CMakeFiles/merge_support.dir/merge_support.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/merge_support.dir/merge_support.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/chris/Dev/NSL/LogoDetector/code/tools/merge_support/merge_support.cpp > CMakeFiles/merge_support.dir/merge_support.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/chris/Dev/NSL/LogoDetector/code/merge/merge_support.cpp > CMakeFiles/merge_support.dir/merge_support.cpp.i
 
 CMakeFiles/merge_support.dir/merge_support.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/merge_support.dir/merge_support.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/chris/Dev/NSL/LogoDetector/code/tools/merge_support/merge_support.cpp -o CMakeFiles/merge_support.dir/merge_support.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/chris/Dev/NSL/LogoDetector/code/merge/merge_support.cpp -o CMakeFiles/merge_support.dir/merge_support.cpp.s
 
 CMakeFiles/merge_support.dir/merge_support.cpp.o.requires:
 .PHONY : CMakeFiles/merge_support.dir/merge_support.cpp.o.requires
@@ -130,6 +130,6 @@ CMakeFiles/merge_support.dir/clean:
 .PHONY : CMakeFiles/merge_support.dir/clean
 
 CMakeFiles/merge_support.dir/depend:
-	cd /home/chris/Dev/NSL/LogoDetector/code/tools/merge_support && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/chris/Dev/NSL/LogoDetector/code/tools/merge_support /home/chris/Dev/NSL/LogoDetector/code/tools/merge_support /home/chris/Dev/NSL/LogoDetector/code/tools/merge_support /home/chris/Dev/NSL/LogoDetector/code/tools/merge_support /home/chris/Dev/NSL/LogoDetector/code/tools/merge_support/CMakeFiles/merge_support.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/chris/Dev/NSL/LogoDetector/code/merge && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/chris/Dev/NSL/LogoDetector/code/merge /home/chris/Dev/NSL/LogoDetector/code/merge /home/chris/Dev/NSL/LogoDetector/code/merge /home/chris/Dev/NSL/LogoDetector/code/merge /home/chris/Dev/NSL/LogoDetector/code/merge/CMakeFiles/merge_support.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/merge_support.dir/depend
 
