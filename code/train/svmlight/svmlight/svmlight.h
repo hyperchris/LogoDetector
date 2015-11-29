@@ -25,7 +25,7 @@ private:
     double* target;
     double* alpha_in;
     KERNEL_CACHE* kernel_cache;
-    MODEL* model; // SVM model
+    MODEL* model; // SVM model 
 
     SVMlight() {
         // Init variables
@@ -145,6 +145,12 @@ public:
     
     const char* getSVMName() const {
         return "SVMlight";
+    }
+
+    // added: set parameters:
+    void setParameters(float svm_c_val, float svm_pos_weight) {
+        learn_parm->svm_c = svm_c_val;
+        learn_parm->svm_costratio = svm_pos_weight;
     }
 
 };

@@ -22,7 +22,7 @@ using namespace cv;
 #define SVMLIGHT 1
 #define LIBSVM 2
 
-#define ALPHA 1.3 // factor that the contrast is magnified
+#define ALPHA 1.2 // factor that the contrast is magnified
 #define BETA 0 // factor that the brightness is increased
 
 //#define TRAINHOG_USEDSVM SVMLIGHT
@@ -231,9 +231,10 @@ static void detectImages(const HOGDescriptor& hog, const double hitThreshold, st
  * ----------------------------------- main -----------------------------------
  */
 int main(int argc, char** argv) {
-    if (argc != 13) {
+    if (argc != 15) {
         cout << "ERROR: argc wrong: ./train [pos_path] [neg_path] [res_path] " << 
-        "[w_wid] [w_hei] [bsize_wid] [bsize_hei] [bstride_wid] [bstride_hei] [c_wid] [c_hei] [need_training]" << endl;
+        "[w_wid] [w_hei] [bsize_wid] [bsize_hei] [bstride_wid] [bstride_hei] [c_wid] [c_hei] " << 
+        "[need_training] [svm_c] [svm_pos_weight]" << endl;
         return -1;
     }
 
@@ -252,6 +253,8 @@ int main(int argc, char** argv) {
     CSIZE_HEIGHT = atoi(argv[11]);
 
     int need_training = atoi(argv[12]);
+    float svm_c_val = atof(argv[13]);
+    float svm_pos_weight = atof(argv[14]);
 
     HOGDescriptor hog; // Use standard parameters here
     hog.winSize = Size(WSIZE_WIDTH, WSIZE_HEIGHT); // Default training images size as used in paper
@@ -327,6 +330,7 @@ int main(int argc, char** argv) {
     }
 
     /// Read in and train the calculated feature vectors
+    TRAINHOG_SVM_TO_TRAIN::getInstance()->setParameters(svm_c_val, svm_pos_weight);
     printf("Calling %s\n", TRAINHOG_SVM_TO_TRAIN::getInstance()->getSVMName());
     TRAINHOG_SVM_TO_TRAIN::getInstance()->read_problem(const_cast<char*> (featuresFile.c_str()));
     TRAINHOG_SVM_TO_TRAIN::getInstance()->train(); // Call the core libsvm training procedure
