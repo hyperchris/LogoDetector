@@ -25,8 +25,11 @@
 #define UPPER 0.0 // upper 15% will be ignored // modified for large images
 #define LOWER 0.33 // lower 1/3 will be ignored
 
-#define ALPHA 1.2 // factor that the contrast is magnified
+#define ALPHA 1.3 // factor that the contrast is magnified
 #define BETA 0 // factor that the brightness is increased
+
+#define THRES_STEP 0.1 // steps that threshold increases by
+#define WSTRIDE_FACTOR 2 // = WIN_STRIDE / B_STRIDE
 
 using namespace std;
 using namespace cv;
@@ -99,8 +102,9 @@ static void detectImages(const HOGDescriptor& hog, const double threshold, strin
                             imageData.cols, (int)((float)imageData.rows * (1.0 - UPPER - LOWER))); // Setup a rectangle (x, y, width, height)
     Mat imageData_cropped = imageData(temp_croppingRec);  // get the cropped image
     hog.detectMultiScale(imageData_cropped, found, hitThreshold, winStride, padding);
+
     while (found.size() > 1) { // increase the thres until only one obj left
-        hitThreshold += 0.1;
+        hitThreshold += THRES_STEP;
         printf("try thres %f\n", hitThreshold);
         hog.detectMultiScale(imageData_cropped, found, hitThreshold, winStride, padding);
     }
@@ -124,7 +128,6 @@ int main(int argc, char** argv) {
     }
 
     double threshold = atof(args[1].c_str());
-    cout << args[1] << " threshold: " << threshold << endl;
     string img_path = args[2];
     string descriptorVectorFile = args[3];
     int store_img = stoi(args[4].c_str());
@@ -152,7 +155,7 @@ int main(int argc, char** argv) {
     hog.setSVMDetector(descriptorVector);
 
     // hog, thres, img_path, store_img, win_stride_size (same as cell size)
-    detectImages(hog, threshold, img_path, store_img, Size(CSIZE_WIDTH, CSIZE_HEIGHT)); 
+    detectImages(hog, threshold, img_path, store_img, Size(BSTRIDE_WIDTH * WSTRIDE_FACTOR, BSTRIDE_HEIGHT * WSTRIDE_FACTOR)); 
 
     printf("Finished\n");
     return EXIT_SUCCESS;

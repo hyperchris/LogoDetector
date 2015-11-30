@@ -3,7 +3,8 @@ use the detector to find the in an image
 
 ##Update
 **Available [logo_name]: 'subway', 'chase', 'mobil'**
-- Check if the dir path ends with '/'
+- Make win_stride into 2x distance (4x faster. Higher precision.)
+- Contrast: 1.3x
 
 ##Merge data
 - Include 'merge' in your python code.
