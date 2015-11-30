@@ -25,7 +25,7 @@
 #define UPPER 0.0 // upper 15% will be ignored // modified for large images
 #define LOWER 0.33 // lower 1/3 will be ignored
 
-#define ALPHA 1.3 // factor that the contrast is magnified
+#define ALPHA 1.2 // factor that the contrast is magnified
 #define BETA 0 // factor that the brightness is increased
 
 #define THRES_STEP 0.1 // steps that threshold increases by

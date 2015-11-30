@@ -4,7 +4,7 @@ use the detector to find the in an image
 ##Update
 **Available [logo_name]: 'subway', 'chase', 'mobil'**
 - Make win_stride into 2x distance (4x faster. Higher precision.)
-- Contrast: 1.3x
+- Contrast: 1.2x
 
 ##Merge data
 - Include 'merge' in your python code.
