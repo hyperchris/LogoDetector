@@ -47,10 +47,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/chris/Dev/NSL/LogoDetector/code/train/tools/img_marker
+CMAKE_SOURCE_DIR = /home/chris/Lab/LogoDetector/code/tools/img_marker
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/chris/Dev/NSL/LogoDetector/code/train/tools/img_marker
+CMAKE_BINARY_DIR = /home/chris/Lab/LogoDetector/code/tools/img_marker
 
 #=============================================================================
 # Target rules for target CMakeFiles/marker.dir
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/chris/Dev/NSL/LogoDetector/code/train/tools/img_marker
 CMakeFiles/marker.dir/all:
 	$(MAKE) -f CMakeFiles/marker.dir/build.make CMakeFiles/marker.dir/depend
 	$(MAKE) -f CMakeFiles/marker.dir/build.make CMakeFiles/marker.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/chris/Dev/NSL/LogoDetector/code/train/tools/img_marker/CMakeFiles  1
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/chris/Lab/LogoDetector/code/tools/img_marker/CMakeFiles  1
 	@echo "Built target marker"
 .PHONY : CMakeFiles/marker.dir/all
 
@@ -69,9 +69,9 @@ all: CMakeFiles/marker.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/marker.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chris/Dev/NSL/LogoDetector/code/train/tools/img_marker/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chris/Lab/LogoDetector/code/tools/img_marker/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/marker.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chris/Dev/NSL/LogoDetector/code/train/tools/img_marker/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chris/Lab/LogoDetector/code/tools/img_marker/CMakeFiles 0
 .PHONY : CMakeFiles/marker.dir/rule
 
 # Convenience name for target.

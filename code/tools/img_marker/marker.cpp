@@ -25,6 +25,9 @@ Mat dst; // cropped image
 Mat img; // image to show
 Mat tmp; // temporary image for displaying the box
 
+int res_left = 0; // result
+int res_right = 0; // result
+
 string getFileName(string fname) {
     int startPos = fname.find_last_of("/");
     return fname.substr(startPos + 1, fname.length());
@@ -86,18 +89,15 @@ void on_mouse(int event,int x,int y,int flags,void *ustc) {
     Size size(win_wid,win_hei);
     resize(dst,dst,size);
     imwrite(RES_DIR + string("pos_") + getFileName(img_path),dst); // store the cropped image
-    
-    cout << "before write to file" << endl;
-    outfile << getFileName(img_path) << ',' << org.cols << ',' << pre_pt.x << ',' << cur_pt.x << endl;
-    cout << "after write to file" << endl;
-    
+    res_left = pre_pt.x;
+    res_right = cur_pt.x;
   }
 }
 
 int main(int argc, char** argv) {
   // input format: ./marker [image_path] [win_width] [win_height]
-  if (argc != 4) {
-    cout << "ERROR: wrong argc! Should be: ./marker [image_path] [win_width] [win_height]" << endl;
+  if (argc <= 4) {
+    cout << "ERROR: wrong argc! Should be: ./marker [win_width] [win_height] [image_n] .. [image_n]" << endl;
     return -1;
   }
   vector<std::string> args(argc);     
@@ -105,20 +105,26 @@ int main(int argc, char** argv) {
       args[i] = argv[i];
   }
   
-  img_path = args[1];
-  win_wid = stoi(args[2].c_str());
-  win_hei = stoi(args[3].c_str());
+  win_wid = stoi(args[1].c_str());
+  win_hei = stoi(args[2].c_str());
   y_ratio = (float)win_hei / (float)win_wid;
 
-  string position_file = string(RES_DIR) + string(POS_FILE);
-  outfile.open(position_file);
-  org = imread(img_path);
-  org.copyTo(img);
-  org.copyTo(tmp);
-  namedWindow("img");// show the original image
-  setMouseCallback("img",on_mouse,0); // main function
-  imshow("img",img);
-  waitKey(0);
-  outfile.close();
+  for (int i = 3; i < argc; i++) {
+    img_path = args[i];
+    string position_file = string(RES_DIR) + string(POS_FILE);
+    //outfile.open(position_file);
+    org = imread(img_path);
+    org.copyTo(img);
+    org.copyTo(tmp);
+    namedWindow("img");// show the original image
+    setMouseCallback("img",on_mouse,0); // main function
+    imshow("img",img);
+    waitKey(0);
+    // outfile << getFileName(img_path) << ',' << org.cols << ',' << res_left << ',' << res_right << endl;
+    //outfile << "hello world" << endl;
+    cout << "write into file: position: " << res_left << " " << res_right << endl;
+    //outfile.close();
+  }
+  
   return 0;
 }

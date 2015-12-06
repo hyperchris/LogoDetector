@@ -29,7 +29,7 @@
 #define BETA 0 // factor that the brightness is increased
 
 #define THRES_STEP 0.1 // steps that threshold increases by
-#define WSTRIDE_FACTOR 2 // = WIN_STRIDE / B_STRIDE
+#define WSTRIDE_FACTOR 1 // = WIN_STRIDE / B_STRIDE
 
 using namespace std;
 using namespace cv;

@@ -47,10 +47,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/chris/Dev/NSL/LogoDetector/code/detect
+CMAKE_SOURCE_DIR = /home/chris/Lab/LogoDetector/code/detect
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/chris/Dev/NSL/LogoDetector/code/detect
+CMAKE_BINARY_DIR = /home/chris/Lab/LogoDetector/code/detect
 
 #=============================================================================
 # Target rules for target CMakeFiles/detect.dir
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/chris/Dev/NSL/LogoDetector/code/detect
 CMakeFiles/detect.dir/all:
 	$(MAKE) -f CMakeFiles/detect.dir/build.make CMakeFiles/detect.dir/depend
 	$(MAKE) -f CMakeFiles/detect.dir/build.make CMakeFiles/detect.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/chris/Dev/NSL/LogoDetector/code/detect/CMakeFiles  1
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/chris/Lab/LogoDetector/code/detect/CMakeFiles  1
 	@echo "Built target detect"
 .PHONY : CMakeFiles/detect.dir/all
 
@@ -69,9 +69,9 @@ all: CMakeFiles/detect.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/detect.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chris/Dev/NSL/LogoDetector/code/detect/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chris/Lab/LogoDetector/code/detect/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/detect.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chris/Dev/NSL/LogoDetector/code/detect/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chris/Lab/LogoDetector/code/detect/CMakeFiles 0
 .PHONY : CMakeFiles/detect.dir/rule
 
 # Convenience name for target.

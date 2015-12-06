@@ -12,8 +12,8 @@ HEIGHT = 54
 PIECE = 1 # how many images each street view generates 
 WIDTH_MAX = 250
 
-UPPER = 0.15 # upper 15% will be ignored
-LOWER = 0.33 # lower 1/3 will be ignored
+UPPER = 0.0 # upper 15% will be ignored
+LOWER = 0.0 # lower 1/3 will be ignored
 
 def trim_img(img_path, width_in, height_in, piece, dstDir):
     try:

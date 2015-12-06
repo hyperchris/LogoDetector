@@ -26,7 +26,7 @@ ERROR_MSG = "ERROR"
 CONFIG_PATH = 'code/config.txt'
 RES_DIR = 'res/'
 
-THRESHOLD = 1.15 # threshold for detection
+THRESHOLD = 1.20 # threshold for detection
 
 WSIZE_WIDTH = 120 # window size
 WSIZE_HEIGHT = 36

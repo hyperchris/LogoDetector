@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 2.8)
+project( fov_detect )
+find_package( OpenCV REQUIRED )
+add_executable( fov_detect fov_detect.cpp )
+target_link_libraries( fov_detect ${OpenCV_LIBS} )

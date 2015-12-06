@@ -2,8 +2,9 @@
 use the detector to find the in an image
 
 ##Update
-**Available [logo_name]: 'subway', 'chase', 'mobil'**
-- Make win_stride into 2x distance (4x faster. Higher precision.)
+**Available [logo_name]: 'subway', 'stopsign', 'chase', 'mobil'**
+- fov_detect added
+- Win_stride 1x
 - Contrast: 1.2x
 
 ##Merge data
@@ -26,3 +27,15 @@ use the detector to find the in an image
 - Use: $ python obj_detect.py [input_dir_path] [logo_name] [threshold] [res_dir_path='res/']
 - All the result images will be stored in [res_dir_path], default value is 'res/'
 - Recommended threshold between 1.1 and 1.3 (for subway logo)
+
+##Detect Field of View
+This part can detect if the triangulation result is within the field of view from one view points. *Support code can be found in 'code/tools/fov_detect'*
+
+### Input
+- Command: $ python fov_detect.py [view_point_file] [triangulation_file] [res_dir]
+- Sample of view_point_file and triangulation_file can be found in 'code/sample_data/'
+
+### Output
+- Result wil be stored in [res_dir]
+- Each line in 'result.txt' means [location_number : number_of_points_within_FoV]
+- Images are the visualized results.

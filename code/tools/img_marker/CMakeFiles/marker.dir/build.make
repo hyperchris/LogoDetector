@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/chris/Dev/NSL/LogoDetector/code/train/tools/img_marker
+CMAKE_SOURCE_DIR = /home/chris/Lab/LogoDetector/code/tools/img_marker
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/chris/Dev/NSL/LogoDetector/code/train/tools/img_marker
+CMAKE_BINARY_DIR = /home/chris/Lab/LogoDetector/code/tools/img_marker
 
 # Include any dependencies generated for this target.
 include CMakeFiles/marker.dir/depend.make
@@ -51,17 +51,17 @@ include CMakeFiles/marker.dir/flags.make
 
 CMakeFiles/marker.dir/marker.cpp.o: CMakeFiles/marker.dir/flags.make
 CMakeFiles/marker.dir/marker.cpp.o: marker.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/chris/Dev/NSL/LogoDetector/code/train/tools/img_marker/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/chris/Lab/LogoDetector/code/tools/img_marker/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/marker.dir/marker.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/marker.dir/marker.cpp.o -c /home/chris/Dev/NSL/LogoDetector/code/train/tools/img_marker/marker.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/marker.dir/marker.cpp.o -c /home/chris/Lab/LogoDetector/code/tools/img_marker/marker.cpp
 
 CMakeFiles/marker.dir/marker.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/marker.dir/marker.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/chris/Dev/NSL/LogoDetector/code/train/tools/img_marker/marker.cpp > CMakeFiles/marker.dir/marker.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/chris/Lab/LogoDetector/code/tools/img_marker/marker.cpp > CMakeFiles/marker.dir/marker.cpp.i
 
 CMakeFiles/marker.dir/marker.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/marker.dir/marker.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/chris/Dev/NSL/LogoDetector/code/train/tools/img_marker/marker.cpp -o CMakeFiles/marker.dir/marker.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/chris/Lab/LogoDetector/code/tools/img_marker/marker.cpp -o CMakeFiles/marker.dir/marker.cpp.s
 
 CMakeFiles/marker.dir/marker.cpp.o.requires:
 .PHONY : CMakeFiles/marker.dir/marker.cpp.o.requires
@@ -81,39 +81,45 @@ marker_EXTERNAL_OBJECTS =
 
 marker: CMakeFiles/marker.dir/marker.cpp.o
 marker: CMakeFiles/marker.dir/build.make
-marker: /usr/local/lib/libopencv_videostab.so.2.4.9
-marker: /usr/local/lib/libopencv_video.so.2.4.9
+marker: /usr/local/lib/libopencv_videostab.so.2.4.10
+marker: /usr/local/lib/libopencv_video.so.2.4.10
 marker: /usr/local/lib/libopencv_ts.a
-marker: /usr/local/lib/libopencv_superres.so.2.4.9
-marker: /usr/local/lib/libopencv_stitching.so.2.4.9
-marker: /usr/local/lib/libopencv_photo.so.2.4.9
-marker: /usr/local/lib/libopencv_ocl.so.2.4.9
-marker: /usr/local/lib/libopencv_objdetect.so.2.4.9
-marker: /usr/local/lib/libopencv_nonfree.so.2.4.9
-marker: /usr/local/lib/libopencv_ml.so.2.4.9
-marker: /usr/local/lib/libopencv_legacy.so.2.4.9
-marker: /usr/local/lib/libopencv_imgproc.so.2.4.9
-marker: /usr/local/lib/libopencv_highgui.so.2.4.9
-marker: /usr/local/lib/libopencv_gpu.so.2.4.9
-marker: /usr/local/lib/libopencv_flann.so.2.4.9
-marker: /usr/local/lib/libopencv_features2d.so.2.4.9
-marker: /usr/local/lib/libopencv_core.so.2.4.9
-marker: /usr/local/lib/libopencv_contrib.so.2.4.9
-marker: /usr/local/lib/libopencv_calib3d.so.2.4.9
-marker: /usr/local/lib/libopencv_nonfree.so.2.4.9
-marker: /usr/local/lib/libopencv_ocl.so.2.4.9
-marker: /usr/local/lib/libopencv_gpu.so.2.4.9
-marker: /usr/local/lib/libopencv_photo.so.2.4.9
-marker: /usr/local/lib/libopencv_objdetect.so.2.4.9
-marker: /usr/local/lib/libopencv_legacy.so.2.4.9
-marker: /usr/local/lib/libopencv_video.so.2.4.9
-marker: /usr/local/lib/libopencv_ml.so.2.4.9
-marker: /usr/local/lib/libopencv_calib3d.so.2.4.9
-marker: /usr/local/lib/libopencv_features2d.so.2.4.9
-marker: /usr/local/lib/libopencv_highgui.so.2.4.9
-marker: /usr/local/lib/libopencv_imgproc.so.2.4.9
-marker: /usr/local/lib/libopencv_flann.so.2.4.9
-marker: /usr/local/lib/libopencv_core.so.2.4.9
+marker: /usr/local/lib/libopencv_superres.so.2.4.10
+marker: /usr/local/lib/libopencv_stitching.so.2.4.10
+marker: /usr/local/lib/libopencv_photo.so.2.4.10
+marker: /usr/local/lib/libopencv_ocl.so.2.4.10
+marker: /usr/local/lib/libopencv_objdetect.so.2.4.10
+marker: /usr/local/lib/libopencv_nonfree.so.2.4.10
+marker: /usr/local/lib/libopencv_ml.so.2.4.10
+marker: /usr/local/lib/libopencv_legacy.so.2.4.10
+marker: /usr/local/lib/libopencv_imgproc.so.2.4.10
+marker: /usr/local/lib/libopencv_highgui.so.2.4.10
+marker: /usr/local/lib/libopencv_gpu.so.2.4.10
+marker: /usr/local/lib/libopencv_flann.so.2.4.10
+marker: /usr/local/lib/libopencv_features2d.so.2.4.10
+marker: /usr/local/lib/libopencv_core.so.2.4.10
+marker: /usr/local/lib/libopencv_contrib.so.2.4.10
+marker: /usr/local/lib/libopencv_calib3d.so.2.4.10
+marker: /usr/lib/x86_64-linux-gnu/libGLU.so
+marker: /usr/lib/x86_64-linux-gnu/libGL.so
+marker: /usr/lib/x86_64-linux-gnu/libSM.so
+marker: /usr/lib/x86_64-linux-gnu/libICE.so
+marker: /usr/lib/x86_64-linux-gnu/libX11.so
+marker: /usr/lib/x86_64-linux-gnu/libXext.so
+marker: /usr/local/lib/libopencv_nonfree.so.2.4.10
+marker: /usr/local/lib/libopencv_ocl.so.2.4.10
+marker: /usr/local/lib/libopencv_gpu.so.2.4.10
+marker: /usr/local/lib/libopencv_photo.so.2.4.10
+marker: /usr/local/lib/libopencv_objdetect.so.2.4.10
+marker: /usr/local/lib/libopencv_legacy.so.2.4.10
+marker: /usr/local/lib/libopencv_video.so.2.4.10
+marker: /usr/local/lib/libopencv_ml.so.2.4.10
+marker: /usr/local/lib/libopencv_calib3d.so.2.4.10
+marker: /usr/local/lib/libopencv_features2d.so.2.4.10
+marker: /usr/local/lib/libopencv_highgui.so.2.4.10
+marker: /usr/local/lib/libopencv_imgproc.so.2.4.10
+marker: /usr/local/lib/libopencv_flann.so.2.4.10
+marker: /usr/local/lib/libopencv_core.so.2.4.10
 marker: CMakeFiles/marker.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable marker"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/marker.dir/link.txt --verbose=$(VERBOSE)
@@ -130,6 +136,6 @@ CMakeFiles/marker.dir/clean:
 .PHONY : CMakeFiles/marker.dir/clean
 
 CMakeFiles/marker.dir/depend:
-	cd /home/chris/Dev/NSL/LogoDetector/code/train/tools/img_marker && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/chris/Dev/NSL/LogoDetector/code/train/tools/img_marker /home/chris/Dev/NSL/LogoDetector/code/train/tools/img_marker /home/chris/Dev/NSL/LogoDetector/code/train/tools/img_marker /home/chris/Dev/NSL/LogoDetector/code/train/tools/img_marker /home/chris/Dev/NSL/LogoDetector/code/train/tools/img_marker/CMakeFiles/marker.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/chris/Lab/LogoDetector/code/tools/img_marker && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/chris/Lab/LogoDetector/code/tools/img_marker /home/chris/Lab/LogoDetector/code/tools/img_marker /home/chris/Lab/LogoDetector/code/tools/img_marker /home/chris/Lab/LogoDetector/code/tools/img_marker /home/chris/Lab/LogoDetector/code/tools/img_marker/CMakeFiles/marker.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/marker.dir/depend
 
