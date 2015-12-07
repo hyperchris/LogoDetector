@@ -47,44 +47,44 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/chris/Lab/LogoDetector/code/tools/fov_detection
+CMAKE_SOURCE_DIR = /home/chris/Lab/LogoDetector/fov/detect_fov
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/chris/Lab/LogoDetector/code/tools/fov_detection
+CMAKE_BINARY_DIR = /home/chris/Lab/LogoDetector/fov/detect_fov
 
 #=============================================================================
-# Target rules for target CMakeFiles/fov_detect.dir
+# Target rules for target CMakeFiles/detect_fov.dir
 
 # All Build rule for target.
-CMakeFiles/fov_detect.dir/all:
-	$(MAKE) -f CMakeFiles/fov_detect.dir/build.make CMakeFiles/fov_detect.dir/depend
-	$(MAKE) -f CMakeFiles/fov_detect.dir/build.make CMakeFiles/fov_detect.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/chris/Lab/LogoDetector/code/tools/fov_detection/CMakeFiles  1
-	@echo "Built target fov_detect"
-.PHONY : CMakeFiles/fov_detect.dir/all
+CMakeFiles/detect_fov.dir/all:
+	$(MAKE) -f CMakeFiles/detect_fov.dir/build.make CMakeFiles/detect_fov.dir/depend
+	$(MAKE) -f CMakeFiles/detect_fov.dir/build.make CMakeFiles/detect_fov.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/chris/Lab/LogoDetector/fov/detect_fov/CMakeFiles  1
+	@echo "Built target detect_fov"
+.PHONY : CMakeFiles/detect_fov.dir/all
 
 # Include target in all.
-all: CMakeFiles/fov_detect.dir/all
+all: CMakeFiles/detect_fov.dir/all
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/fov_detect.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chris/Lab/LogoDetector/code/tools/fov_detection/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/fov_detect.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chris/Lab/LogoDetector/code/tools/fov_detection/CMakeFiles 0
-.PHONY : CMakeFiles/fov_detect.dir/rule
+CMakeFiles/detect_fov.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chris/Lab/LogoDetector/fov/detect_fov/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/detect_fov.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chris/Lab/LogoDetector/fov/detect_fov/CMakeFiles 0
+.PHONY : CMakeFiles/detect_fov.dir/rule
 
 # Convenience name for target.
-fov_detect: CMakeFiles/fov_detect.dir/rule
-.PHONY : fov_detect
+detect_fov: CMakeFiles/detect_fov.dir/rule
+.PHONY : detect_fov
 
 # clean rule for target.
-CMakeFiles/fov_detect.dir/clean:
-	$(MAKE) -f CMakeFiles/fov_detect.dir/build.make CMakeFiles/fov_detect.dir/clean
-.PHONY : CMakeFiles/fov_detect.dir/clean
+CMakeFiles/detect_fov.dir/clean:
+	$(MAKE) -f CMakeFiles/detect_fov.dir/build.make CMakeFiles/detect_fov.dir/clean
+.PHONY : CMakeFiles/detect_fov.dir/clean
 
 # clean rule for target.
-clean: CMakeFiles/fov_detect.dir/clean
+clean: CMakeFiles/detect_fov.dir/clean
 .PHONY : clean
 
 #=============================================================================

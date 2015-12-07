@@ -1,4 +1,4 @@
-# Install script for directory: /home/chris/Lab/LogoDetector/code/tools/fov_detection
+# Install script for directory: /home/chris/Lab/LogoDetector/fov/detect_fov
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,7 +38,7 @@ ELSE(CMAKE_INSTALL_COMPONENT)
   SET(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 ENDIF(CMAKE_INSTALL_COMPONENT)
 
-FILE(WRITE "/home/chris/Lab/LogoDetector/code/tools/fov_detection/${CMAKE_INSTALL_MANIFEST}" "")
+FILE(WRITE "/home/chris/Lab/LogoDetector/fov/detect_fov/${CMAKE_INSTALL_MANIFEST}" "")
 FOREACH(file ${CMAKE_INSTALL_MANIFEST_FILES})
-  FILE(APPEND "/home/chris/Lab/LogoDetector/code/tools/fov_detection/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+  FILE(APPEND "/home/chris/Lab/LogoDetector/fov/detect_fov/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
 ENDFOREACH(file)

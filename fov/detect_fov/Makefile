@@ -39,10 +39,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/chris/Lab/LogoDetector/code/tools/fov_detection
+CMAKE_SOURCE_DIR = /home/chris/Lab/LogoDetector/fov/detect_fov
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/chris/Lab/LogoDetector/code/tools/fov_detection
+CMAKE_BINARY_DIR = /home/chris/Lab/LogoDetector/fov/detect_fov
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -69,9 +69,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chris/Lab/LogoDetector/code/tools/fov_detection/CMakeFiles /home/chris/Lab/LogoDetector/code/tools/fov_detection/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chris/Lab/LogoDetector/fov/detect_fov/CMakeFiles /home/chris/Lab/LogoDetector/fov/detect_fov/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chris/Lab/LogoDetector/code/tools/fov_detection/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chris/Lab/LogoDetector/fov/detect_fov/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -99,41 +99,41 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named fov_detect
+# Target rules for targets named detect_fov
 
 # Build rule for target.
-fov_detect: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 fov_detect
-.PHONY : fov_detect
+detect_fov: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 detect_fov
+.PHONY : detect_fov
 
 # fast build rule for target.
-fov_detect/fast:
-	$(MAKE) -f CMakeFiles/fov_detect.dir/build.make CMakeFiles/fov_detect.dir/build
-.PHONY : fov_detect/fast
+detect_fov/fast:
+	$(MAKE) -f CMakeFiles/detect_fov.dir/build.make CMakeFiles/detect_fov.dir/build
+.PHONY : detect_fov/fast
 
-fov_detect.o: fov_detect.cpp.o
-.PHONY : fov_detect.o
+detect_fov.o: detect_fov.cpp.o
+.PHONY : detect_fov.o
 
 # target to build an object file
-fov_detect.cpp.o:
-	$(MAKE) -f CMakeFiles/fov_detect.dir/build.make CMakeFiles/fov_detect.dir/fov_detect.cpp.o
-.PHONY : fov_detect.cpp.o
+detect_fov.cpp.o:
+	$(MAKE) -f CMakeFiles/detect_fov.dir/build.make CMakeFiles/detect_fov.dir/detect_fov.cpp.o
+.PHONY : detect_fov.cpp.o
 
-fov_detect.i: fov_detect.cpp.i
-.PHONY : fov_detect.i
+detect_fov.i: detect_fov.cpp.i
+.PHONY : detect_fov.i
 
 # target to preprocess a source file
-fov_detect.cpp.i:
-	$(MAKE) -f CMakeFiles/fov_detect.dir/build.make CMakeFiles/fov_detect.dir/fov_detect.cpp.i
-.PHONY : fov_detect.cpp.i
+detect_fov.cpp.i:
+	$(MAKE) -f CMakeFiles/detect_fov.dir/build.make CMakeFiles/detect_fov.dir/detect_fov.cpp.i
+.PHONY : detect_fov.cpp.i
 
-fov_detect.s: fov_detect.cpp.s
-.PHONY : fov_detect.s
+detect_fov.s: detect_fov.cpp.s
+.PHONY : detect_fov.s
 
 # target to generate assembly for a file
-fov_detect.cpp.s:
-	$(MAKE) -f CMakeFiles/fov_detect.dir/build.make CMakeFiles/fov_detect.dir/fov_detect.cpp.s
-.PHONY : fov_detect.cpp.s
+detect_fov.cpp.s:
+	$(MAKE) -f CMakeFiles/detect_fov.dir/build.make CMakeFiles/detect_fov.dir/detect_fov.cpp.s
+.PHONY : detect_fov.cpp.s
 
 # Help Target
 help:
@@ -141,12 +141,12 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... detect_fov"
 	@echo "... edit_cache"
-	@echo "... fov_detect"
 	@echo "... rebuild_cache"
-	@echo "... fov_detect.o"
-	@echo "... fov_detect.i"
-	@echo "... fov_detect.s"
+	@echo "... detect_fov.o"
+	@echo "... detect_fov.i"
+	@echo "... detect_fov.s"
 .PHONY : help
 
 
