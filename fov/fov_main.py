@@ -48,7 +48,8 @@ if __name__ == '__main__':
 	
 	for i in range(len(raw_data_list)): # for each t_point
 		num_inside = 0
-		for j in range(raw_data_list[i].vp_list_len): # for each vp of the t_point
+		for j in range(len(raw_data_list[i].vp_list)): # for each vp of the t_point
+			# print `i` + '\t' + `raw_data_list[i].vp_list[j].lat` + ' ' + `raw_data_list[i].vp_list[j].lng`
 			map_path = download_map.download_map(raw_data_list[i].vp_list[j], MAP_SCALE, RES_DIR, i, j) # download the map image for this vp
 			# Function to get the relative distance from vp to t_p
 			# Input: vp_lat,lng; t_lat,lng;  
@@ -62,11 +63,13 @@ if __name__ == '__main__':
 			# 	3. return if the t_p is in the FoV 
 			# 	4. (TBD) draw the sight_line from vp and a circle around the t_p
 			# Input: [map_path], [vp_point_bearing] [distance_vector]
+			'''
 			is_inside = detect_fov.detect_fov(map_path, raw_data_list[i].vp_list[j].bearing, dist_vec) 
 			if is_inside:
 				num_inside += 1
+			'''
 		append_file(`i`+ ':' + `num_inside`, RES_DIR + RES_FILE) # write result to file
 		# TO REMOVE
-		break # this is temporary (for test)
+		# break # this is temporary (for test)
 	
 	print "done"

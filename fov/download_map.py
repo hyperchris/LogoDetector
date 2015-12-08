@@ -4,7 +4,7 @@ import urllib2
 
 # sample google map api: http://maps.google.com/maps/api/staticmap?center=34.0200862,-118.2892835&zoom=19&size=900x900&maptype=roadmap
 
-SLEEP_TIME = 0.5
+SLEEP_TIME = 1
 
 PREFIX = 'http://maps.google.com/maps/api/staticmap?center='
 MIDDLE = '&zoom='

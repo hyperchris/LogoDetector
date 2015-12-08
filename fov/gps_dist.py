@@ -15,4 +15,6 @@ def get_distance(origin_lat, origin_lng, dest_lat, dest_lng):
 	destinationXY = point(float(xy[0]), float(xy[1]))
 
 	distance = math.sqrt((originXY.x - destinationXY.x) ** 2 + (originXY.y - destinationXY.y) ** 2)
-	return [destinationXY.x - originXY.x, destinationXY.y - originXY.y] # return the distance vector
+	res = [(destinationXY.x - originXY.x) * 4, (destinationXY.y - originXY.y) * 4]
+	# print res
+	return res # return the distance vector

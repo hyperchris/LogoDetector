@@ -36,6 +36,7 @@ using namespace std;
  
 int temp_xy[2];
 
+// PROBLEM
 void findBlockPoint (bool positive, bool horizonal, Mat src, double angle_tan) {
 	int pos_x = 0;
 	int pos_y = 0;
@@ -90,6 +91,7 @@ void findBlockPoint (bool positive, bool horizonal, Mat src, double angle_tan) {
 	temp_xy[1] = pos_y;
 }
 
+// PROBLEM
 /* find the lines of eyesight */
 void eyesightDetect (Mat & src, vector<Point> & edge_pts, int bearing, int aov) {
 	Mat dst = src;
@@ -124,6 +126,16 @@ void eyesightDetect (Mat & src, vector<Point> & edge_pts, int bearing, int aov) 
 	}
 }
 
+/* calculate the endpoint of a line. */
+// origin point is at the center of the image
+// theta starts from y+ direction, increases clockwisely. Range: [0,360)
+Point cal_end(double theta, int wid, int hei) {
+	int radius = sqrt(pow(wid/2, 2) + pow(hei/2, 2)); // circle radius
+	int x_offset = radius * sin(theta * ANGLE_UNIT);
+	int y_offset = radius * cos(theta * ANGLE_UNIT);
+	return Point(wid / 2 + x_offset, hei / 2 - y_offset); 
+}
+
 /* main func */
 int main(int argc, char** argv) {
 
@@ -139,8 +151,8 @@ int main(int argc, char** argv) {
         args[i] = argv[i];
     }
 	Mat img = imread(args[1], 1);// read in src map
-	int bearing = stoi(args[2].c_str()); // bearing
-	int aov = stoi(args[3].c_str()); // angle of view
+	double bearing = stod(args[2].c_str()); // bearing
+	double aov = stod(args[3].c_str()); // angle of view
 	int dst_x = stoi(args[4].c_str()); // distance to the triangulation result - x value
 	int dst_y = stoi(args[5].c_str()); // y value
 
@@ -148,20 +160,26 @@ int main(int argc, char** argv) {
     cout << "input to detect_fov: " << args[1] << " " << bearing << " " << aov << " " << dst_x << " " << dst_y << endl;
 
     vector<Point> edge_pts;
+    /*
+    // PROBLEM: phase is wrong. Will crash
     eyesightDetect(img, edge_pts, bearing, aov); // get the eyesight result
+	*/
 
     /* draw FoV */
     // start from original point to first edge pt
-	line(img, Point(IMG_EDGE_HALF, IMG_EDGE_HALF), edge_pts[0], Scalar(255,0,0), 2, 8, 0);
-	// linke each edge pts
+	line(img, Point(IMG_EDGE_HALF, IMG_EDGE_HALF), cal_end(bearing - aov / 2, IMG_EDGE, IMG_EDGE), Scalar(255,0,0), 2, 8, 0);
+	/*
+	// PROBLEM: there are some problems with eyesightDetect. So the I won't draw its result here
+	// linke each edge pts 
 	for (int i = 0; i < edge_pts.size() - 1; i++)
 		line(img, edge_pts[i], edge_pts[i + 1], Scalar(255,0,0), 2, 8, 0);
+	*/
 	// finally link to the original point
-	line(img, Point(IMG_EDGE_HALF, IMG_EDGE_HALF), edge_pts[edge_pts.size() - 1], Scalar(255,0,0), 2, 8, 0);
+	line(img, Point(IMG_EDGE_HALF, IMG_EDGE_HALF), cal_end(bearing + aov / 2, IMG_EDGE, IMG_EDGE), Scalar(255,0,0), 2, 8, 0);
 	/* draw t_p */
-	circle(img, Point(dst_x, dst_y), 4, Scalar(0,0,255), 4, 8, 0);
+	circle(img, Point(IMG_EDGE_HALF + dst_x, IMG_EDGE_HALF - dst_y), 4, Scalar(0,0,255), 5, 8, 0);
 	/* draw vp */
-	circle(img, Point(IMG_EDGE_HALF, IMG_EDGE_HALF), 4, Scalar(0,0,0), 4, 8, 0);
+	circle(img, Point(IMG_EDGE_HALF, IMG_EDGE_HALF), 4, Scalar(0,0,0), 5, 8, 0);
 
 	imwrite(args[1], img);
 	/*

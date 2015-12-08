@@ -48,11 +48,13 @@ def parse(vp_file, t_file):
 			bearing = float(vp_file_part[4].split('.')[0])
 			vp_line = vp_data.readline() # read the detection result line
 			if not 'empty' in vp_line:
-				print `vp_count` + ': ' + vp_file_part[1] + ' ' + `lat` + ' ' + `lng` + ' ' + `bearing`
+				# print `vp_count` + ': ' + vp_file_part[1] + ' ' + `lat` + ' ' + `lng` + ' ' + `bearing`
+				raw_data.vp_dict[`vp_count`] = Vp_data(lat, lng, bearing) # store the data
 				vp_count += 1
-				raw_data.add(Vp_data(lat, lng, bearing)) # store the data
+		# for i in range(len(raw_data.vp_list)):
+			# print `len(raw_data_list)` + ': ' + `raw_data.vp_list[i][0]` + ' ' + `raw_data.vp_list[i][1]` 
 		raw_data_list.append(raw_data) # add one more subway..
-		print 'vp_list len: ' + `raw_data.vp_list_len`
+		print 'vp_list len: ' + `len(raw_data.vp_dict)`
 		t_line = t_data.readline()
 		while vp_line != '' and not VP_HEADER_LEFT in vp_line: # pass the rest empty results
 			vp_line = vp_data.readline()
