@@ -1,5 +1,5 @@
 # LogoDetector
-use the detector to find the in an image
+use the detector to find a specific in an image. **There should not be space in image names!**
 
 ##Update
 **Available [logo_name]: 'subway', 'stopsign', 'chase', 'mobil'**

@@ -1,1 +1,0 @@
-/home/chris/Lab/LogoDetector/fov/detect_fov/CMakeFiles/detect_fov.dir
