@@ -36,7 +36,6 @@ string getFileName(string fname) {
 static string img_path;
 static int win_wid, win_hei;
 static float y_ratio;
-static ofstream outfile; // output file handler
 
 void on_mouse(int event,int x,int y,int flags,void *ustc) { 
   static Point pre_pt = Point(-1,-1); // initial position
@@ -94,6 +93,14 @@ void on_mouse(int event,int x,int y,int flags,void *ustc) {
   }
 }
 
+// append a line to a text file with / endl
+void appendFile(string msg, string path) {
+  ofstream outfile; // output file handler
+  outfile.open(path, ofstream::app);
+  outfile << msg << endl;
+  outfile.close();
+}
+
 int main(int argc, char** argv) {
   // input format: ./marker [image_path] [win_width] [win_height]
   if (argc <= 4) {
@@ -109,10 +116,10 @@ int main(int argc, char** argv) {
   win_hei = stoi(args[2].c_str());
   y_ratio = (float)win_hei / (float)win_wid;
 
+  string position_file = string(RES_DIR) + string(POS_FILE);
+  
   for (int i = 3; i < argc; i++) {
     img_path = args[i];
-    string position_file = string(RES_DIR) + string(POS_FILE);
-    //outfile.open(position_file);
     org = imread(img_path);
     org.copyTo(img);
     org.copyTo(tmp);
@@ -122,6 +129,8 @@ int main(int argc, char** argv) {
     waitKey(0);
     // outfile << getFileName(img_path) << ',' << org.cols << ',' << res_left << ',' << res_right << endl;
     //outfile << "hello world" << endl;
+    string line = getFileName(img_path) + ' ' + to_string(org.cols) + "," + to_string(res_left) + "," + to_string(res_right);
+    appendFile(line, position_file);
     cout << "write into file: position: " << res_left << " " << res_right << endl;
     //outfile.close();
   }
