@@ -1,0 +1,61 @@
+import time, os, sys
+from common import *
+import urllib2
+
+# sample google map api: http://maps.google.com/maps/api/staticmap?center=34.0200862,-118.2892835&zoom=19&size=900x900&maptype=roadmap
+
+SLEEP_TIME = 2
+SCALE = 19
+
+PREFIX = 'http://maps.google.com/maps/api/staticmap?center='
+MIDDLE = '&zoom='
+SUFFIX = '&size=900x900&maptype=roadmap'
+
+MARK = '&markers=color:red%7Clabel:none%7C'
+
+# download the map image for this vp
+def download_map(vp_data, scale, res_dir, tp_num, vp_num): 
+	# data struct of vp_data is Vp_data from common
+	imgurl = PREFIX + `vp_data.lat` + ',' + `vp_data.lng` + MIDDLE + `scale` + SUFFIX
+	response = urllib2.urlopen(imgurl) # download map
+	img = response.read()
+	map_path = res_dir + 'res_' + `tp_num` + '_vp_' + `vp_num` + '.png'
+	print 'store img to: ' + map_path
+	imout = open(map_path, 'w')
+	imout.write(img)
+	imout.close()
+	time.sleep(SLEEP_TIME) # sleep for 100 ms
+
+	return map_path
+
+# main func
+if __name__ == '__main__':
+	# download a set of maps for t_p in a list. maps are stored in res_dir
+	if len(sys.argv) != 3:
+		sys.exit('ERROR: wrong argc! Should be:\n download_map.py [input_file] [res_dir]')
+
+	input_file = sys.argv[1]
+	res_dir = sys.argv[2]
+	
+	if res_dir[-1] != '/':
+		res_dir += '/'
+	if not os.path.exists(res_dir):
+		os.makedirs(res_dir)
+
+	# read in file
+	din = open(input_file, 'r')
+	line = din.readline()
+	tp_num = 0
+	while line != '':
+		if ',' in line:
+			lat = float(line.split(',')[0])
+			lng = float(line.split(',')[-1].split('\n')[0])
+			SUFFIX_ORIGIN = SUFFIX
+			SUFFIX += MARK + `lat` + ',' + `lng` # draw the mark at center
+			# download the map
+			print 'res stored into ' + download_map(Vp_data(lat,lng,0), SCALE, res_dir, tp_num, 0)
+			SUFFIX = SUFFIX_ORIGIN
+		tp_num += 1
+		line = din.readline()
+	din.close()	
+	print 'done'
