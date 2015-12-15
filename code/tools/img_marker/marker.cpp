@@ -135,6 +135,6 @@ int main(int argc, char** argv) {
     // reset the detection result to zero
     res_left = 0;
     res_right = 0;
-  
+  }
   return 0;
 }
