@@ -127,13 +127,14 @@ int main(int argc, char** argv) {
     setMouseCallback("img",on_mouse,0); // main function
     imshow("img",img);
     waitKey(0);
-    // outfile << getFileName(img_path) << ',' << org.cols << ',' << res_left << ',' << res_right << endl;
-    //outfile << "hello world" << endl;
-    string line = getFileName(img_path) + ' ' + to_string(org.cols) + "," + to_string(res_left) + "," + to_string(res_right);
-    appendFile(line, position_file);
+    if (res_left > 0 && res_right > 0) { // add a line to result 
+      string line = getFileName(img_path) + ' ' + to_string(org.cols) + "," + to_string(res_left) + "," + to_string(res_right);
+      appendFile(line, position_file);
+    }
     cout << "write into file: position: " << res_left << " " << res_right << endl;
-    //outfile.close();
-  }
+    // reset the detection result to zero
+    res_left = 0;
+    res_right = 0;
   
   return 0;
 }

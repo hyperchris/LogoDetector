@@ -4,7 +4,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/home/chris/Lab/LogoDetector/code/tools/img_marker/marker.cpp" "/home/chris/Lab/LogoDetector/code/tools/img_marker/CMakeFiles/marker.dir/marker.cpp.o"
+  "/home/chris/Dev/NSL/LogoDetector/code/tools/img_marker/marker.cpp" "/home/chris/Dev/NSL/LogoDetector/code/tools/img_marker/CMakeFiles/marker.dir/marker.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 

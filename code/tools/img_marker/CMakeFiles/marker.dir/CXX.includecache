@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/chris/Lab/LogoDetector/code/tools/img_marker/marker.cpp
+/home/chris/Dev/NSL/LogoDetector/code/tools/img_marker/marker.cpp
 opencv2/opencv.hpp
 -
 opencv2/core/core.hpp

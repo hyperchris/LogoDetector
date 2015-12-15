@@ -1,1 +1,1 @@
-/home/chris/Lab/LogoDetector/code/tools/img_marker/CMakeFiles/marker.dir
+/home/chris/Dev/NSL/LogoDetector/code/tools/img_marker/CMakeFiles/marker.dir
