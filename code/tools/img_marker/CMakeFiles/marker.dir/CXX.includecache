@@ -19,8 +19,6 @@ iostream
 -
 string
 -
-stdio.h
--
 stdlib.h
 -
 fstream

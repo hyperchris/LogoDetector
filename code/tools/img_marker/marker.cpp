@@ -3,13 +3,16 @@
  * What will be written into pos file: [img-name],[img_wid],[res_x_left],[res_x_y]\n
  */
 
+// what's new: 
+ // - exclude the area that is smaller than MIN_SIZE
+ // - add resize factor to the input parameter
+
 #include <opencv2/opencv.hpp>
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <stdio.h>
 #include <iostream>
 #include <string>
-#include <stdio.h>
 #include <stdlib.h>
 #include <fstream>
 #include <cctype>
@@ -19,6 +22,8 @@ using namespace cv;
 
 #define POS_FILE "positions.txt" // the position information will be stored here
 #define RES_DIR "pos/" // this dir must exist together w/ the compiled program
+
+#define MIN_SIZE 10 // if the box is smaller than this size, ignore.
 
 Mat org; // image read in  
 Mat dst; // cropped image
@@ -36,6 +41,7 @@ string getFileName(string fname) {
 static string img_path;
 static int win_wid, win_hei;
 static float y_ratio;
+static float resize_ratio; 
 
 void on_mouse(int event,int x,int y,int flags,void *ustc) { 
   static Point pre_pt = Point(-1,-1); // initial position
@@ -103,11 +109,11 @@ void appendFile(string msg, string path) {
 
 int main(int argc, char** argv) {
   // input format: ./marker [image_path] [win_width] [win_height]
-  if (argc <= 4) {
+  if (argc <= 5) {
     cout << "ERROR: wrong argc! Should be: ./marker [win_width] [win_height] [image_n] .. [image_n]" << endl;
     return -1;
   }
-  vector<std::string> args(argc);     
+  vector<string> args(argc);     
   for (int i = 0; i < argc; ++i) {
       args[i] = argv[i];
   }
@@ -115,21 +121,25 @@ int main(int argc, char** argv) {
   win_wid = stoi(args[1].c_str());
   win_hei = stoi(args[2].c_str());
   y_ratio = (float)win_hei / (float)win_wid;
+  resize_ratio = (float)stod(args[3].c_str());
 
   string position_file = string(RES_DIR) + string(POS_FILE);
   
-  for (int i = 3; i < argc; i++) {
+  for (int i = 4; i < argc; i++) {
     img_path = args[i];
     org = imread(img_path);
+    resize(org, org, Size(org.cols / resize_ratio, org.rows / resize_ratio)); // resize the image 
     org.copyTo(img);
     org.copyTo(tmp);
-    namedWindow("img");// show the original image
+    namedWindow("img"); // show the original image
     setMouseCallback("img",on_mouse,0); // main function
     imshow("img",img);
     waitKey(0);
     if (res_left > 0 && res_right > 0) { // add a line to result 
-      string line = getFileName(img_path) + ' ' + to_string(org.cols) + "," + to_string(res_left) + "," + to_string(res_right);
-      appendFile(line, position_file);
+      string line = getFileName(img_path) + ' ' + to_string(int(org.cols * resize_ratio)) + ",";
+      line += to_string(int(res_left * resize_ratio)) + "," + to_string(int(res_right * resize_ratio));
+      if (abs(res_left - res_right) < 10) // dismiss the box that is too small.
+        appendFile(line, position_file);
     }
     cout << "write into file: position: " << res_left << " " << res_right << endl;
     // reset the detection result to zero
