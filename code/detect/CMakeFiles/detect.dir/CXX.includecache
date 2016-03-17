@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/chris/Lab/LogoDetector/code/detect/detect.cpp
+/home/chris/Dev/NSL/LogoDetector/code/detect/detect.cpp
 stdio.h
 -
 stdlib.h

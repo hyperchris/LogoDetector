@@ -28,6 +28,9 @@ use the detector to find a specific in an image. **There should not be space in 
 - All the result images will be stored in [res_dir_path], default value is 'res/'
 - Recommended threshold between 1.1 and 1.3 (for subway logo)
 
+- - -
+(in constraction...)
+
 ##Detect Field of View
 This part can detect if the triangulation result is within the field of view from one view points. *Support code can be found in 'code/tools/fov_detect'*
 

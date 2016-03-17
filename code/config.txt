@@ -1,3 +1,4 @@
-subway,1.2,120,36,12,12,6,6,6,6
-stopsign,1.0,64,64,8,8,4,4,4,4
+# format: name,thres,win_wid,win_hei,...
 
+subway,1.3,120,36,12,12,6,6,6,6
+stopsign,1.0,64,64,8,8,4,4,4,4

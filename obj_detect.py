@@ -18,15 +18,16 @@
 	- All the result images will be stored in [res_dir_path]
 '''
 
-import time, os, copy, sys, random, threading
+import os, copy, sys, random, threading
  
 RESULT_HEADER = "RESULT: "
 ERROR_MSG = "ERROR"
 
 CONFIG_PATH = 'code/config.txt'
 RES_DIR = 'res/'
+LOG_PATH = 'log.txt'
 
-THRESHOLD = 1.20 # threshold for detection
+THRESHOLD = 1.30 # threshold for detection
 
 WSIZE_WIDTH = 120 # window size
 WSIZE_HEIGHT = 36
@@ -40,32 +41,38 @@ BSTRIDE_HEIGHT = 6
 CSIZE_WIDTH = 6
 CSIZE_HEIGHT = 6
 
+def writeLog(line):
+	f = open(LOG_PATH, 'a')
+	f.write(line)
+	f.close()
+
 def get_result(image_path, logo_name, store_img=1, res_dir_path=RES_DIR):
 	cmd = './code/detect/detect ' + `THRESHOLD` + ' ' + image_path + ' code/classifiers/' + logo_name + '.dat ' + `store_img` + ' ' + res_dir_path + \
 	' ' + `WSIZE_WIDTH` + ' ' + `WSIZE_HEIGHT` + ' ' + `BSIZE_WIDTH` + ' ' + `BSIZE_HEIGHT` + \
 	' ' + `BSTRIDE_WIDTH` + ' ' + `BSTRIDE_WIDTH` + ' ' + `CSIZE_WIDTH` + ' ' + `CSIZE_HEIGHT`
-	print cmd # debug
+	# print cmd # debug
 	ret_val = os.popen(cmd).read().split('\n') # system call
 	found = False
 	for i in range(len(ret_val)):
-		print ret_val[i]
+		# print ret_val[i]
 		if ret_val[i].startswith(RESULT_HEADER): # if result starts with RESULT means success
 			found = True
 			return ret_val[i].split(RESULT_HEADER)[-1] # return result
 			break
-	if found == False:
-		print 'error!'
-		return ERROR_MSG # not found, return ERROR
+	print 'error!'
+	return ERROR_MSG # not found, return ERROR
 
 # Go through the dir to process every image
 def dir_walk(rootDir, indent, logo_name):
 	print 'logo: ' + logo_name
 	for dirName, subdirList, fileList in os.walk(rootDir):
-		print indent + dirName
 		for fname in fileList: # file 
 			print indent + '\t'+ fname
 			if '.jpg' in fname or '.png' in fname or '.JPG' in fname or '.PNG' in fname:
+				print fname
 				detect_res = get_result(rootDir + fname, logo_name, 1, RES_DIR)
+				if '/' in detect_res: # if has positive result, log into file
+					writeLog(fname + '\n' + detect_res + '\n')
 
 if __name__ == '__main__':
 	if len(sys.argv) != 4:
@@ -76,6 +83,10 @@ if __name__ == '__main__':
 	input_dir_path = sys.argv[1] 
 	logo_name = sys.argv[2]
 	RES_DIR = sys.argv[3]
+	
+	f = open(LOG_PATH, 'w') # refresh the log file..
+	f.write('')
+	f.close()
 
 	# check if the dir path is end with '/'
 	if input_dir_path[-1] != '/':

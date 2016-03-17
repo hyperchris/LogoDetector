@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include <dirent.h>
 #include <iostream>
 #include <iterator>
@@ -23,7 +24,7 @@
 #define SPLITTER "/"
 
 #define UPPER 0.0 // upper 15% will be ignored // modified for large images
-#define LOWER 0.33 // lower 1/3 will be ignored
+#define LOWER 0.0 // lower 1/3 will be ignored
 
 #define ALPHA 1.2 // factor that the contrast is magnified
 #define BETA 0 // factor that the brightness is increased
@@ -58,7 +59,7 @@ static void readDescriptorFromFile(vector<float>& descriptorVector, const string
         count++;
     }
     cout << endl;
-    printf("reading vector success\n");
+    // printf("reading vector success\n");
     ifs.close();
 }
 
@@ -84,7 +85,8 @@ static void storeDetections(const vector<Rect>& found, Mat& imageData, string re
 }
 
 static void detectImages(const HOGDescriptor& hog, const double threshold, string img_path, int store_img, Size winStride) {
-    printf("detecting... %s\n", img_path.c_str());
+    //printf("detecting... %s\n", img_path.c_str());
+    double start = time();
     Mat imageData_origin = imread(img_path, 1);
     Mat imageData = Mat::zeros(imageData_origin.size(), imageData_origin.type());
     for(int y = 0; y < imageData.rows; y++) { 
@@ -119,6 +121,7 @@ static void detectImages(const HOGDescriptor& hog, const double threshold, strin
             storeDetections(found, imageData, getFileName(img_path)); // display the res image
         }
     }
+    cout << "time: " + (time() - start) << endl;
 }
 
 int main(int argc, char** argv) {
