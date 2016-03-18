@@ -18,7 +18,7 @@
 	- All the result images will be stored in [res_dir_path]
 '''
 
-import os, copy, sys, random, threading
+import time, os, copy, sys, random, threading
  
 RESULT_HEADER = "RESULT: "
 ERROR_MSG = "ERROR"
@@ -51,7 +51,9 @@ def get_result(image_path, logo_name, store_img=1, res_dir_path=RES_DIR):
 	' ' + `WSIZE_WIDTH` + ' ' + `WSIZE_HEIGHT` + ' ' + `BSIZE_WIDTH` + ' ' + `BSIZE_HEIGHT` + \
 	' ' + `BSTRIDE_WIDTH` + ' ' + `BSTRIDE_WIDTH` + ' ' + `CSIZE_WIDTH` + ' ' + `CSIZE_HEIGHT`
 	# print cmd # debug
+	startTime = time.time()
 	ret_val = os.popen(cmd).read().split('\n') # system call
+	print 'process time: ' + `(time.time() - startTime)`
 	found = False
 	for i in range(len(ret_val)):
 		# print ret_val[i]
@@ -67,7 +69,6 @@ def dir_walk(rootDir, indent, logo_name):
 	print 'logo: ' + logo_name
 	for dirName, subdirList, fileList in os.walk(rootDir):
 		for fname in fileList: # file 
-			print indent + '\t'+ fname
 			if '.jpg' in fname or '.png' in fname or '.JPG' in fname or '.PNG' in fname:
 				print fname
 				detect_res = get_result(rootDir + fname, logo_name, 1, RES_DIR)

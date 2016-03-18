@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
+#include <sys/time.h>
 #include <dirent.h>
 #include <iostream>
 #include <iterator>
@@ -36,6 +36,12 @@ using namespace std;
 using namespace cv;
 
 static string res_dir = "res/";
+
+long getCurrentTime() {    
+   struct timeval tv;    
+   gettimeofday(&tv,NULL);    
+   return tv.tv_sec * 1000 + tv.tv_usec / 1000;    
+}   
 
 string getFileName(string fname) {
     int startPos = fname.find_last_of("/");
@@ -85,8 +91,6 @@ static void storeDetections(const vector<Rect>& found, Mat& imageData, string re
 }
 
 static void detectImages(const HOGDescriptor& hog, const double threshold, string img_path, int store_img, Size winStride) {
-    //printf("detecting... %s\n", img_path.c_str());
-    double start = time();
     Mat imageData_origin = imread(img_path, 1);
     Mat imageData = Mat::zeros(imageData_origin.size(), imageData_origin.type());
     for(int y = 0; y < imageData.rows; y++) { 
@@ -103,6 +107,7 @@ static void detectImages(const HOGDescriptor& hog, const double threshold, strin
     Rect temp_croppingRec = getCroppingRec(imageData, 0, (int)((float)imageData.rows * UPPER), 
                             imageData.cols, (int)((float)imageData.rows * (1.0 - UPPER - LOWER))); // Setup a rectangle (x, y, width, height)
     Mat imageData_cropped = imageData(temp_croppingRec);  // get the cropped image
+    // cout << "cur time: " << getCurrentTime() << endl;
     hog.detectMultiScale(imageData_cropped, found, hitThreshold, winStride, padding);
 
     while (found.size() > 1) { // increase the thres until only one obj left
@@ -121,7 +126,7 @@ static void detectImages(const HOGDescriptor& hog, const double threshold, strin
             storeDetections(found, imageData, getFileName(img_path)); // display the res image
         }
     }
-    cout << "time: " + (time() - start) << endl;
+    // cout << "time after: " << getCurrentTime() << endl;
 }
 
 int main(int argc, char** argv) {
@@ -159,7 +164,7 @@ int main(int argc, char** argv) {
 
     // hog, thres, img_path, store_img, win_stride_size (same as cell size)
     detectImages(hog, threshold, img_path, store_img, Size(BSTRIDE_WIDTH * WSTRIDE_FACTOR, BSTRIDE_HEIGHT * WSTRIDE_FACTOR)); 
-
+    
     printf("Finished\n");
     return EXIT_SUCCESS;
 }
